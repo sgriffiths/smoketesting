@@ -1,0 +1,24 @@
+destination: "#edit-bydestination"
+destination submit: "#edit-submit--3"
+
+#footer links
+About Flight Centre: "li:contains('About Flight Centre') > a"
+Contact Us: "li:contains('Contact Us') > a"
+Careers: "li:contains('Careers') > a"
+Terms & Conditions: "li:contains('Terms & Conditions') > a"
+Terms of use: "li:contains('Terms of use') > a"
+Privacy Policy: "li:contains('Privacy policy') > a"
+Site Map: "li:contains('Site map') > a"
+
+#Careers right sidebar selections
+Why work with Flight Centre: "ul > li:contains('Why work with Flight Centre') > a"
+Becoming a Travel Sales Consultant: "ul > li:contains('Becoming a Travel Sales Consultant') > a"
+Our Recruitment Process: "ul > li:contains('Our Recruitment Process') > a"
+Our Culture: "ul > li:contains('Our Culture') > a"
+Career Progression & Development: "ul > li:contains('Career Progression & Development') > a"
+Graduate Program: "ul > li:contains('Graduate Program') > a"
+Flight Centre Travel Academy: "ul > li:contains('Flight Centre Travel Academy') > a"
+News & Events: "ul > li:contains('News & Events') > a"
+Frequently Asked Questions: "ul > li:contains('Frequently Asked Questions') > a"
+
+Flights: "ul > li:contains('flights') > a"
