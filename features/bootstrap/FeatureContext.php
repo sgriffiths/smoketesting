@@ -1,15 +1,9 @@
 <?php
 
-use Behat\Behat\Context\ClosuredContextInterface,
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
-use Behat\MinkExtension\Context\MinkContext,
-    OrangeDigital\BusinessSelectorExtension\Context\BusinessSelectorContext;
-
-// use Drupal\DrupalExtension\Context\DrupalContext;
+// use Behat\Behat\Context\ClosuredContextInterface,
+//     Behat\Behat\Context\TranslatedContextInterface,
+//     Behat\Behat\Context\BehatContext,
+//     Behat\Behat\Exception\PendingException;
 // use Drupal\Component\Utility\Random;
 // use Symfony\Component\Process\Process;
 
@@ -20,13 +14,21 @@ use Behat\MinkExtension\Context\MinkContext,
 // use Behat\Behat\Event\StepEvent;
 // use Behat\Mink\Exception\ElementNotFoundException;
 
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
+use Behat\Gherkin\Node\PyStringNode,
+    Behat\Gherkin\Node\TableNode;
+use Behat\MinkExtension\Context\MinkContext,
+    OrangeDigital\BusinessSelectorExtension\Context\BusinessSelectorContext;
 
-class FeatureContext extends BehatContext
+use Drupal\DrupalExtension\Context\DrupalContext,
+    Drupal\DrupalExtension\Event\EntityEvent;
+
+
+class FeatureContext extends DrupalContext
 {
     public function __construct(array $parameters)
     {
-        $this->useContext('mink', new MinkContext($parameters));
+        // $this->useContext('mink', new MinkContext($parameters));
         $this->useContext('BusinessSelectors', new BusinessSelectorContext($parameters));
     }
 
@@ -125,5 +127,20 @@ class FeatureContext extends BehatContext
       throw new Exception("The background of the status is not '" . $colour . "' on the page " . $this->getSession()->getCurrentUrl());
     }
   }
+
+  /**
+* @Then /^I scroll down the page$/
+*/
+public function iScrollDownThePage() {
+   $driver = $this->getSession()->getDriver();
+   $driver->executeScript("window.scrollBy(0, 450)", "");
+}
+
+  /**
+* @Given /^I wait for the page to load$/
+*/
+  public function iWaitForThePageToLoad() {
+      $this->getSession()->wait(2000);
+    }
 
 }

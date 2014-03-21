@@ -177,6 +177,5 @@ Scenario: Flights Nav links and elements
 	Given I hover over "Holiday Packages"
 	Then I should see the following <links>
 | links |
-| Honeymoons			|
-| Round the world					|
-| Holiday types 			|
+| Honeymoons				|
+| Round the world			|
