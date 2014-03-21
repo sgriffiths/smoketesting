@@ -26,6 +26,9 @@ use Drupal\DrupalExtension\Context\DrupalContext,
 
 class FeatureContext extends DrupalContext
 {
+
+    var $originalWindowName = '';
+
     public function __construct(array $parameters)
     {
         // $this->useContext('mink', new MinkContext($parameters));
@@ -160,4 +163,48 @@ public function iScrollDownThePage() {
       $this->getSession()->wait(2000);
     }
 
-}
+    /**
+     * @Then /^I switch to popup$/
+     */
+    public function iSwitchToPopup() {
+        $originalWindowName = $this->getSession()->getWindowName(); //Get the original name
+
+        if (empty($this->originalWindowName)) {
+            $this->originalWindowName = $originalWindowName;
+        }
+
+        $this->getSession()->getPage()->pressButton("Withdraw"); //Pressing the withdraw button
+
+        $popupName = $this->getNewPopup($originalWindowName);
+
+        //Switch to the popup Window
+        $this->getSession()->switchToWindow($popupName);
+    }
+
+    /**
+     * @Then /^I switch back to the original window$/
+     */
+    public function iSwitchBackToTheOriginalWindow() {
+        //Switch to the original window
+        $this->getSession()->switchToWindow($this->originalWindowName);
+    }
+
+    /**
+     * This gets the window name of the new popup.
+     */
+    private function getNewPopup($originalWindowName = NULL) {
+        //Get all of the window names first
+        $names = $this->getSession()->getWindowNames();
+
+        //Now it should be the last window name
+        $last = array_pop($names);
+
+        if (!empty($originalWindowName)) {
+            while ($last == $originalWindowName && !empty($names)) {
+                $last = array_pop($names);
+            }
+        }
+
+        return $last;
+    }
+  }

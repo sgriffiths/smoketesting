@@ -9,13 +9,13 @@ Background: All test to start at the homepage
 	And I should not see "Sorry, the page you were looking for could not be found."
 
 
-Scenario: Access and check the homepage
-	Then I should see the following <links>
-| links            		|
-| Home             		|
-| Flights          		|
-| Holiday Packages 		|
-| Hotels           		|
+# Scenario: Access and check the homepage
+# 	Then I should see the following <links>
+# | links            		|
+# | Home             		|
+# | Flights          		|
+# | Holiday Packages 		|
+# | Hotels           		|
 # | Rail             		|
 # | Tours            		|
 # | Cruises          		|
@@ -84,11 +84,11 @@ Scenario: Access and check the homepage
 # And I should see the heading "Emergency Global Assistance"
 # And I should see the heading "All new bookings and enquiries"
 
-# Scenario: Access and and check the Careers page
-# 	When I follow the link "Careers"
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-#    # When I click "Contact Us" "{link}" in the "footer" region
-# 	And I should see the heading "Flight Centre Careers"
+Scenario: Access and and check the Careers page
+	When I follow the link "Careers"
+	And I should not see "Sorry, the page you were looking for could not be found."
+   # When I click "Contact Us" "{link}" in the "footer" region
+	And I should see the heading "Flight Centre Careers"
 
 # # select links from the right sidebar
 # 	When I follow the link "Why work with Flight Centre"
@@ -120,21 +120,24 @@ Scenario: Access and check the homepage
 # 	Then print current URL
 # 	Then I should see "Do I need to pay for to undertake qualifications with Flight Centre?"
 
-# 	When I follow the link "News & Events"
-# 	Then print current URL
-# 	Then I should see "Latest News"
-# 	And I should see "Upcoming Events"
+	When I follow the link "News & Events"
+	Then print current URL
+	Then I should see "Latest News"
+	And I should see "Upcoming Events"
 
-# 	And I should see "Flight Centre Travel Academy"
+	When I click the "Flight Centre Travel Academy"
+	And I wait for the page to load
+	Then print current URL
+	Then I switch back to the original window
 
 
-# Scenario: Access and and check the terms and conditions page
-# 	When I follow the link "Terms & Conditions"
-# 	Then print current URL
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	And I should see the heading "Booking Terms & Conditions"
-# 	And I should see the heading "Passports & Visas:"
-# 	And I should see "We recommend that you contact the airline to confirm your scheduled departure time 24 hours prior to your flight."
+Scenario: Access and and check the terms and conditions page
+	When I follow the link "Terms & Conditions"
+	Then print current URL
+	And I should not see "Sorry, the page you were looking for could not be found."
+	And I should see the heading "Booking Terms & Conditions"
+	And I should see the heading "Passports & Visas:"
+	And I should see "We recommend that you contact the airline to confirm your scheduled departure time 24 hours prior to your flight."
 
 # Scenario: Access and and check the terms of use page
 # 	When I follow the link "Terms of use"
@@ -219,3 +222,10 @@ Scenario: Access and check the homepage
 # | links |
 # | This Week's Hot Deals	|
 # | TV Ads         		|
+
+Scenario: Search and receive results
+
+Given I fill in the "Search Field" field with "New York"
+Then I click the "Search Button"
+Then I should see "Results"
+And I should see "Guides"

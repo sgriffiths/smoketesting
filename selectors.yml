@@ -31,3 +31,7 @@ Cruises: "ul > li:contains('Cruises') > a"
 Extras: "ul > li:contains('Extras') > a"
 Destinations: "ul > li:contains('Destinations') > a"
 Deals: "ul > li:contains('Deals') > a"
+
+#Search
+Search Button: "#suggestion_form_gs > button"
+Search Field: "#suggestion_form_gs > input"
