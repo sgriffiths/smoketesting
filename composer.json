@@ -3,14 +3,13 @@
 
         "behat/behat": ">v2.4@stable",
         "php": ">=5.3.3",
-        "phing/phing": "2.7.0",
         "phpunit/phpunit": "3.7.22",
         "orangedigital/business-selector-extension": "0.9.2",
         "drupal/drupal-extension": "*",
-        "behat/mink-zombie-driver": "~1.0",
-        "phpdocumentor/phpdocumentor": "2.*",
         "sauce/sausage": ">=0.4.0",
-        "sauce/connect": ">=3.0"
+        "sauce/connect": ">=3.0",
+        "zodyac/behat-failure-screenshot-extension": "dev-master",
+        "zodyac/behat-extensible-html-formatter": "dev-master"
 
     }
   }
