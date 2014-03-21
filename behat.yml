@@ -6,7 +6,7 @@ default:
       goutte: ~
       selenium2: ~
       base_url: http://flightcentre.com.au/
-      default_session: selenium2
+      default_session: selenium2  
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
       selectorFilePath: selectors.yml
@@ -14,3 +14,4 @@ default:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
+    # Zodyac\Behat\FailureScreenshotExtension\Extension:

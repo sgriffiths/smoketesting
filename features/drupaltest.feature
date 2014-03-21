@@ -125,9 +125,7 @@ Scenario: Access and and check the Careers page
 	Then I should see "Latest News"
 	And I should see "Upcoming Events"
 
-	When I click the "Flight Centre Travel Academy"
-	And I wait for the page to load
-	Then print current URL
+	And I should see "Flight Centre Travel Academy"
 
 
 Scenario: Access and and check the terms and conditions page
@@ -179,3 +177,45 @@ Scenario: Flights Nav links and elements
 | links |
 | Honeymoons				|
 | Round the world			|
+
+	Given I hover over "Hotels"
+	Then I should see the following <links>
+| links |
+| Sydney				|
+| Hawaii    			|
+
+	Given I hover over "Rail"
+	Then I should see the following <links>
+| links |
+| INTERNATIONAL RAIL	|
+| Africa    			|
+
+	Given I hover over "Tours"
+	Then I should see the following <links>
+| links |
+| TOUR TYPES 			|
+| Coach Tours    		|
+
+	Given I hover over "Cruises"
+	Then I should see the following <links>
+| links |
+| CRUISE SHIPS 			|
+| Life on board    		|
+
+	Given I hover over "Extras"
+	Then I should see the following <links>
+| links |
+| GIFT CARDS 				|
+| Hertz Car Hire    		|
+
+	Given I hover over "Destinations"
+	Then I should see the following <links>
+| links |
+| Ireland				|
+| Italy         		|
+
+	Given I hover over "Deals"
+	Then I should see the following <links>
+| links |
+| This Week's Hot Deals	|
+| TV Ads         		|
