@@ -14,4 +14,3 @@ default:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-    # Zodyac\Behat\FailureScreenshotExtension\Extension:

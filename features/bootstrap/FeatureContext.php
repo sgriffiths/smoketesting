@@ -32,7 +32,24 @@ class FeatureContext extends DrupalContext
         $this->useContext('BusinessSelectors', new BusinessSelectorContext($parameters));
     }
 
-
+  /**
+   * Take screenshot when step fails.
+   * Works only with Selenium2Driver.
+   *
+   * @AfterStep
+   */
+  public function takeScreenshotAfterFailedStep(Behat\Behat\Event\StepEvent $event) {
+      if (Behat\Behat\Event\StepEvent::FAILED === $event->getResult()) {
+      $driver = $this->getSession()->getDriver();
+      if ($driver instanceof Behat\Mink\Driver\Selenium2Driver) {
+        $step = $event->getStep();
+        $id = $step->getParent()->getTitle() . '.' . $step->getType() . ' ' . $step->getText();
+        $fileName = 'Fail.'.preg_replace('/[^a-zA-Z0-9-_\.]/','_', $id) . '.jpg';
+        file_put_contents($fileName, $driver->getScreenshot());
+      }
+    }
+  }
+  
   /**
    * @Then /^I (?:should |)see the following <tabs>$/
    */

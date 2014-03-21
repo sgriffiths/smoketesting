@@ -1,0 +1,20 @@
+2014-03-21 14:05:12,144 - sauce_connect:575 - INFO - / Starting \
+2014-03-21 14:05:12,148 - sauce_connect:576 - INFO - Please wait for "You may start your tests" to start your tests.
+2014-03-21 14:05:12,154 - sauce_connect:588 - DEBUG - System is 10.0 hours off UTC
+2014-03-21 14:05:12,155 - sauce_connect:590 - DEBUG - options: {'use_ssh_config': False, 'boost_mode': True, 'ssh': False, 'ports': ['57605'], 'vm_version': '', 'squid_opts': '', 'logfilesize': '31457280', 'readyfile': None, 'tunnel_ports': ['80'], 'host': '127.0.0.1', 'latency_log': 150, 'quiet': False, 'shared_tunnel': False, 'allow_unclean_exit': False, 'tunnel_identifier': '', 'ssh_port': 443, 'logfile': 'sauce_connect.log', 'debug_ssh': False, 'domains': ['sauce-connect.proxy'], 'no_ssl_bump_domains': '', 'rest_url': 'https://saucelabs.com/rest/v1', 'direct_domains': '', 'fast_fail_regexps': '', 'se_port': '4445', 'user': 'scottyg'}
+2014-03-21 14:05:12,157 - sauce_connect:591 - DEBUG - metadata: {'OwnerHost': '127.0.0.1', 'Platform': 'Java-1.8.0-Java_HotSpot-TM-_64-Bit_Server_VM,_25.0-b70,_Oracle_Corporation-on-Mac_OS_X-10.9.2-x86_64', 'PythonVersion': '2.5.1', 'Ports': ['80'], 'ScriptRelease': 46, 'OwnerPorts': ['57605'], 'Build': '46', 'ScriptName': 'sauce_connect', 'Release': '3.0-r30'}
+2014-03-21 14:05:12,160 - sauce_connect:593 - INFO - Forwarding: ['sauce-connect.proxy']:['80'] -> 127.0.0.1:['57605']
+2014-03-21 14:05:12,174 - sauce_connect:385 - INFO - Succesfully connected to local server 127.0.0.1:57605 in 6ms
+2014-03-21 14:05:12,190 - sauce_connect:164 - WARNING - Problem connecting to Sauce Labs REST API (HTTP server responded with 'java.net.ConnectException: Connection refused' (expected 'OK'))
+2014-03-21 14:05:12,193 - sauce_connect:172 - DEBUG - Retrying in 5s
+2014-03-21 14:05:17,201 - sauce_connect:164 - WARNING - Problem connecting to Sauce Labs REST API (HTTP server responded with 'java.net.ConnectException: Connection refused' (expected 'OK'))
+2014-03-21 14:05:17,203 - sauce_connect:172 - DEBUG - Retrying in 5s
+2014-03-21 14:05:22,211 - sauce_connect:164 - WARNING - Problem connecting to Sauce Labs REST API (HTTP server responded with 'java.net.ConnectException: Connection refused' (expected 'OK'))
+2014-03-21 14:05:22,213 - sauce_connect:172 - DEBUG - Retrying in 5s
+2014-03-21 14:05:27,221 - sauce_connect:164 - WARNING - Problem connecting to Sauce Labs REST API (HTTP server responded with 'java.net.ConnectException: Connection refused' (expected 'OK'))
+2014-03-21 14:05:27,223 - sauce_connect:172 - DEBUG - Retrying in 5s
+2014-03-21 14:05:32,232 - sauce_connect:164 - WARNING - Problem connecting to Sauce Labs REST API (HTTP server responded with 'java.net.ConnectException: Connection refused' (expected 'OK'))
+2014-03-21 14:05:32,234 - sauce_connect:172 - DEBUG - Retrying in 5s
+2014-03-21 14:05:37,243 - sauce_connect:164 - WARNING - Problem connecting to Sauce Labs REST API (HTTP server responded with 'java.net.ConnectException: Connection refused' (expected 'OK'))
+2014-03-21 14:05:37,244 - sauce_connect:618 - ERROR - Could not reach Sauce Labs REST API after 6 tries. Is your network down or firewalled?
+2014-03-21 14:05:37,246 - sauce_connect:415 - INFO - \ Exiting /
