@@ -2,3 +2,4 @@ selenium-server-standalone-2.40.0.jar
 vendor/*
 Fail.*
 .DS_Store
+chromedriver*

@@ -35,3 +35,10 @@ Deals: "ul > li:contains('Deals') > a"
 #Search
 Search Button: "#suggestion_form_gs > button"
 Search Field: "#suggestion_form_gs > input"
+
+#Postcode Search
+
+Postcode: "#postcode"
+Find Store Button: "div.storeLocator > form > button"
+Flight Centre Manly West: "li.store-0.stripe.store_finder_store > div > span.address"
+Flight Centre Wynnum Plaza: "li.store-1.store_finder_store > div > span.address"
