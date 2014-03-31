@@ -44,3 +44,40 @@ sauce:
         browser: firefox
         wd_host: scottyg:57414aef-4c65-45cd-b2ad-e935f99bfa9e@ondemand.saucelabs.com/wd/hub
         capabilities: {  "platform": "Windows 7" , "version": "21" , "name":"Test" }
+
+travel-associates:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.travel-associates.com.au/
+      javascript_session: 'selenium2'
+      browser_name: chrome
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors.yml
+      assetPath: path   
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+
+escape-travel:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.escapetravel.com.au/
+      javascript_session: 'selenium2'
+      browser_name: chrome
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    # Drupal\DrupalExtension\Extension:
+    #   blackbox: ~
+    #   drupal:
+    #   region_map:
+    #     footer: "#footer"

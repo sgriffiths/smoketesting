@@ -1,4 +1,4 @@
-@javascript @headless
+@javascript @smoke @fcau
 Feature: smoke test the FCAU production site
 	In order to verify that the site is up and working to some degress
 	As a website user
@@ -12,7 +12,7 @@ Background: All test to start at the homepage
 Scenario: Access and check the homepage
 	Then I should see the following <links>
 | links            		|
-| Home             		|
+| Home            		|
 | Flights          		|
 | Holiday Packages 		|
 | Hotels           		|
@@ -34,8 +34,8 @@ And I should see the heading "Cheap Flights, Holidays and Travel Deals"
 And I should see the heading "Where do you want to go?"
 And I should see the following <text>
 
-| text            |
-| Home           |
+| text   |
+| Home             |
 | Flights          |
 | Holiday Packages |
 | LOWEST AIRFARE GUARANTEE |
@@ -43,8 +43,8 @@ And I should see the following <text>
 
 
 Scenario: Access and check the about page
-	When I follow the link "About Flight Centre"
-And I should not see "Sorry, the page you were looking for could not be found."
+	When I follow the link "About Flight Centre Footer"
+	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see the following <links>
 | links |
 | About Flight Centre					|
@@ -61,6 +61,7 @@ And I should see the heading "Lowest Airfare Guarantee"
 
 Scenario: Access and and check the contact us page
 	When I follow the link "Contact Us"
+	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
    # When I click "Contact Us" "{link}" in the "footer" region
 
@@ -127,8 +128,7 @@ Scenario: Access and and check the Careers page
 	When I click the "Flight Centre Travel Academy"
 	And I wait for the page to load
 	Then print current URL
-	Then I switch back to the original window
-
+	# Then I switch back to the original window
 
 Scenario: Access and and check the terms and conditions page
 	When I follow the link "Terms & Conditions"
@@ -173,6 +173,10 @@ Scenario: Flights Nav links and elements
 | Qantas					|
 | Round the world 			|
 | Airport Parking 			|
+	Then I go to the page "International Flights"
+	Then I should see the heading "International Flights"
+	And I should see the heading "Find Cheap Flights"
+
 
 	Given I hover over "Holiday Packages"
 	Then I should see the following <links>
@@ -233,6 +237,7 @@ Scenario: Search for a store and confirm the details
 
 	Given I fill in the "Postcode" field with "4154"
 	And I click the "Find Store Button"
+	And I wait for the page to load
 	Then I should see the heading "Flight Centre Manly West"
 	When I hover over "Flight Centre Manly West"
 	And I click the "Flight Centre Manly West"
@@ -240,7 +245,11 @@ Scenario: Search for a store and confirm the details
 	Given I click the "Flight Centre Wynnum Plaza"
 	Then I should see "Distance: 3.6km"
 
-
+Scenario: Cheap Flights, Holidays and Travel Deals
+	Given I click the "Domestic Flights Link"
+	Then I should see "Brisbane »"
+	When I click the "About Flight Centre"
+	Then I should see the heading "Lowest Airfare Guarantee"
 
 
 

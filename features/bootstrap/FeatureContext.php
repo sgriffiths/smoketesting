@@ -1,20 +1,5 @@
 <?php
 
-// use Behat\Behat\Context\ClosuredContextInterface,
-//     Behat\Behat\Context\TranslatedContextInterface,
-//     Behat\Behat\Context\BehatContext,
-//     Behat\Behat\Exception\PendingException;
-// use Drupal\Component\Utility\Random;
-// use Symfony\Component\Process\Process;
-
-// use Behat\Behat\Context\Step\Given;
-// use Behat\Behat\Context\Step\When;
-// use Behat\Behat\Context\Step\Then;
-// use Behat\Behat\Event\ScenarioEvent;
-// use Behat\Behat\Event\StepEvent;
-// use Behat\Mink\Exception\ElementNotFoundException;
-
-// require 'vendor/autoload.php';
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext,
@@ -47,12 +32,16 @@ class FeatureContext extends DrupalContext
       if ($driver instanceof Behat\Mink\Driver\Selenium2Driver) {
         $step = $event->getStep();
         $id = $step->getParent()->getTitle() . '.' . $step->getType() . ' ' . $step->getText();
-        $fileName = 'Fail.'.preg_replace('/[^a-zA-Z0-9-_\.]/','_', $id) . '.jpg';
-        file_put_contents($fileName, $driver->getScreenshot());
       }
+        $directory = 'screenshots/behat'.$event->getLogicalParent()->getFeature()->getTitle().'.'.$event->getLogicalParent()->getTitle();
+          if (!is_dir($directory)) {
+              mkdir($directory, 0777, true);
+      }
+        $filename = sprintf('%s_%s_%s.%s', $this->getMinkParameter('browser_name'), date('c'), uniqid('', true), 'png');
+        file_put_contents($directory.'/'.$filename, $driver->getScreenshot());
     }
   }
-  
+
   /**
    * @Then /^I (?:should |)see the following <tabs>$/
    */
@@ -76,6 +65,32 @@ class FeatureContext extends DrupalContext
       }
     }
   }
+  /**
+   * @Then /^I (?:should |)see the following TA <tabs>$/
+   */
+  public function iShouldSeeTheFollowingTATabs(TableNode $table) {
+    // Fetch tab links.
+    $tab_links = $this->getSession()->getPage()->findAll('css', '#jquery-ui-filter > ul > li > a');
+    if (empty($tab_links)) {
+      throw new Exception('No tabs found');
+    }
+    $arr_tabs = array();
+    foreach ($tab_links as $tab) {
+      $arr_tabs[] = $tab->getText();
+    }
+    if (empty($table)) {
+      throw new Exception('No tabs specified');
+    }
+    // Loop through table and check tab is present.
+    foreach ($table->getHash() as $t) {
+      if (!in_array($t['tabs'], $arr_tabs)) {
+        throw new Exception('The tab: "' . $t['tabs'] . '" cannot be found' );
+      }
+    }
+  }
+
+
+
 
    /**
    * @Given /^I should not see the following <texts>$/

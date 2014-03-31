@@ -3,3 +3,4 @@ vendor/*
 Fail.*
 .DS_Store
 chromedriver*
+screenshots/
