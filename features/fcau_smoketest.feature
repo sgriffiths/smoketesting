@@ -1,6 +1,6 @@
 @javascript @smoke @fcau
-Feature: smoke test the FCAU production site
-	In order to verify that the site is up and working to some degress
+Feature: Feature: smoke test the FCAU production and Acquia Test sites
+	In order to verify that the site is up and working to some degree
 	As a website user
 	I need to check various pages and page elements to confirm this
 
@@ -9,7 +9,7 @@ Background: All test to start at the homepage
 	And I should not see "Sorry, the page you were looking for could not be found."
 
 
-Scenario: Access and check the homepage
+Scenario: Access and check the homepage links, headings and text
 	Then I should see the following <links>
 | links            		|
 | Home            		|
@@ -41,8 +41,7 @@ And I should see the following <text>
 | LOWEST AIRFARE GUARANTEE |
 | ABN 25 003 377 188 ACN 003 377 188 |
 
-
-Scenario: Access and check the about page
+Scenario: Access and verify the 'about' page
 	When I follow the link "About Flight Centre Footer"
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see the following <links>
@@ -59,7 +58,7 @@ Scenario: Access and check the about page
 And I should see the heading "Don't miss a thing!"
 And I should see the heading "Lowest Airfare Guarantee"
 
-Scenario: Access and and check the contact us page
+Scenario: Access and verify the 'contact us' page
 	When I follow the link "Contact Us"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
@@ -85,52 +84,53 @@ And I should see the following <text>
 And I should see the heading "Emergency Global Assistance"
 And I should see the heading "All new bookings and enquiries"
 
-Scenario: Access and and check the Careers page
+Scenario: Access and check the Careers page
 	When I follow the link "Careers"
 	And I should not see "Sorry, the page you were looking for could not be found."
 	And I should see the heading "Flight Centre Careers"
 
-# select links from the right sidebar
-	When I follow the link "Why work with Flight Centre"
-	And I should see "Flight Centre Foundation"
-	And I should see "Our people are our greatest asset"
+# paged moved over to drupal, need to update these tests
 
-	When I follow the link "Becoming a Travel Sales Consultant"
-	Then print current URL
-	Then I should see "Introducing the Travel Industry"
+	# When I follow the link "Why work for Flight Centre"
+	# And I should see "Flight Centre Foundation"
+	# And I should see "Our people are our greatest asset"
 
-	When I follow the link "Our Recruitment Process"
-	Then print current URL
-	Then I should see "What do we look for?"
+	# When I follow the link "Becoming a Travel Sales Consultant"
+	# Then print current URL
+	# Then I should see "Introducing the Travel Industry"
 
-	When I follow the link "Our Culture"
-	Then print current URL
-	Then I should see "Health and Life Balance"
+	# When I follow the link "Our Recruitment Process"
+	# Then print current URL
+	# Then I should see "What do we look for?"
 
-	When I follow the link "Career Progression & Development"
-	Then print current URL
-	Then I should see "Welcome Aboard!"
-	Then I should see "Travel Opportunities"
+	# When I follow the link "Our Culture"
+	# Then print current URL
+	# Then I should see "Health and Life Balance"
 
-	When I follow the link "Graduate Program"
-	Then print current URL
-	Then I should see "What’s involved in the Business Leadership Graduate Program?"
+	# When I follow the link "Career Progression & Development"
+	# Then print current URL
+	# Then I should see "Welcome Aboard!"
+	# Then I should see "Travel Opportunities"
 
-	When I follow the link "Frequently Asked Questions"
-	Then print current URL
-	Then I should see "Do I need to pay for to undertake qualifications with Flight Centre?"
+	# When I follow the link "Graduate Program"
+	# Then print current URL
+	# Then I should see "What’s involved in the Business Leadership Graduate Program?"
 
-	When I follow the link "News & Events"
-	Then print current URL
-	Then I should see "Latest News"
-	And I should see "Upcoming Events"
+	# When I follow the link "Frequently Asked Questions"
+	# Then print current URL
+	# Then I should see "Do I need to pay for to undertake qualifications with Flight Centre?"
 
-	When I click the "Flight Centre Travel Academy"
-	And I wait for the page to load
-	Then print current URL
-	# Then I switch back to the original window
+	# When I follow the link "News & Events"
+	# Then print current URL
+	# Then I should see "Latest News"
+	# And I should see "Upcoming Events"
 
-Scenario: Access and and check the terms and conditions page
+	# When I click the "Flight Centre Travel Academy"
+	# And I wait for the page to load
+	# Then print current URL
+	# # Then I switch back to the original window
+
+Scenario: Access and check the 'terms and conditions' page
 	When I follow the link "Terms & Conditions"
 	Then print current URL
 	And I should not see "Sorry, the page you were looking for could not be found."
@@ -138,33 +138,32 @@ Scenario: Access and and check the terms and conditions page
 	And I should see the heading "Passports & Visas:"
 	And I should see "We recommend that you contact the airline to confirm your scheduled departure time 24 hours prior to your flight."
 
-Scenario: Access and and check the terms of use page
+Scenario: Access and check the 'terms of use' page
 	When I follow the link "Terms of use"
 	Then print current URL
 	And I should not see "Sorry, the page you were looking for could not be found."
 	And I should see the heading "Terms of Use"
 	And I should see the heading "Intellectual Property"
 
-Scenario: Access and and check the Privacy Policy page
+Scenario: Access and check the 'Privacy Policy' page
 	When I follow the link "Privacy Policy"
 	Then print current URL
 	And I should not see "Sorry, the page you were looking for could not be found."
 	And I should see the heading "Privacy Policy"
 	And I should see the heading "What personal information do we collect?"
 
-Scenario: Access and and check the site map page
+Scenario: Access and check the 'site map' page links
 	When I follow the link "Site Map"
 	Then print current URL
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see the following <links>
 | links |
-| Get away to the USA			|
 | Travel Shop					|
 | Weddings & Honeymoons 		|
 | Triple Treat Holidays 		|
 
 
-Scenario: Flights Nav links and elements 
+Scenario: 'Flights': hover over navigation links  and verify headings and elements 
 
 	Given I hover over "Flights"
 	Then I should see the following <links>
@@ -226,7 +225,7 @@ Scenario: Flights Nav links and elements
 | This Week's Hot Deals	|
 | TV Ads         		|
 
-Scenario: Search and receive results
+Scenario: Perform a search and receive results
 
 	Given I fill in the "Search Field" field with "New York"
 	Then I click the "Search Button"

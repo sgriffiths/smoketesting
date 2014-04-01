@@ -9,7 +9,7 @@ Background: All test to start at the homepage
 	And I should not see "Sorry, the page you were looking for could not be found."
 
 
-Scenario: Access and check the homepage
+Scenario: Access and check the 'homepage' links, headings, text and phone numbers
 	Then I should see the following <links>
 | links |
 | Destinations          |
@@ -101,7 +101,7 @@ And I should see the following <text>
 | CommBank Awards 	    |
 
 
-Scenario: Access and confirm the Destinations page
+Scenario: Access and confirm the 'Destinations' page
 	When I follow the link "TA Destinations"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
@@ -120,7 +120,7 @@ Scenario: Access and confirm the Destinations page
 	And I should see the heading "Holiday Destinations"
 
 
-Scenario: Access and and check the flights page
+Scenario: Access and check the text and URL on the 'Flights' page
 	When I follow the link "TA Flights"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
@@ -139,7 +139,7 @@ Then I should see "Brisbane To"
 #To do: add some tests for the Webform on the flights page
 
 
-Scenario: Access and and check the Cruise page
+Scenario: Access and check text, URL and headings onthe 'Cruise' page
 	When I follow the link "TA Cruises"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
@@ -148,7 +148,7 @@ Scenario: Access and and check the Cruise page
 	And I should see "Amasra"
 	And I should see "At Travel Associates, the new generation of cruising has arrived. Where dining is world class, onboard activities cater towards niche interests and itineraries have expanded to some of the most isolated and exotic ports in the world. Once you've experienced a luxury cruise holiday with us, you won’t want to travel any other way."
 
-Scenario: Access and and check the Experiences page
+Scenario: Access and check URL, headings, text and element selection on the 'Experiences' page
 	When I follow the link "TA Experiences"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
@@ -158,15 +158,13 @@ Scenario: Access and and check the Experiences page
 	And I should see "OUR TRAVEL BLOG"
 	And I should see "To find out more about the luxury special interest holidays and other special interest travel options available with Travel Associates call 1800 017 849 or enquire online"
 	# Given I hover over "Overwater Bungalows"
-	When I click "Overwater Bungalows"
+	When I click "Honeymoon Holidays"
 	And I wait for the page to load
-	Then I should see the heading "Overwater Bungalows"
+	Then I should see the heading "Honeymoon Holidays"
 	And I should see the heading "What's on offer..."
-	When I click "InterContinental Moorea Resort & Spa"
-	Then I should see the heading "What's included"
-	And I should see "You might also be interested in ..."
+	And I should see the heading "Interested in Honeymoon Holidays?"
 
-Scenario: Access blog page and check for content
+Scenario: Access the Blog page and check for content
 	Given I follow the link "TA Blog"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."

@@ -9,7 +9,7 @@ Background: All tests to start at the homepage
 	And I should not see "Sorry, the page you were looking for could not be found."
 
 
-Scenario: Access and check the homepage elements, links and text
+Scenario: Access and confirm the links, heading, text  on the 'homepage'
 	Then I should see the following <links>
 | links |
 | Flights         		|
@@ -32,6 +32,31 @@ And I should see the following <links>
 | Terms and Conditions |
 | Privacy Policy |
 
+Scenario: Homepage locate a store functionality
+	Given I fill in the "Locate A Store" field with "4154"
+	And I click the "Search"
+	And I wait for the page to load
+	Then I should see the heading "Find your local Escape Travel store"
+	Then I should see the heading "Escape Travel Capalaba"
+
+Scenario: Homepage Email Us link and form check
+	Given I click the "Email us"
+	Then I should be on "/company/contact-us/enquiry"
+	And I should see the heading "Travel details"
+	And I should see the heading "Your details"
+	And I should see the following <text>
+	| text |
+	| First name |
+	| Last name |
+	| Phone |
+	| Email address |
+	| Postcode |
+	| Contact me via |
+	| Departing from |
+	| Destination |
+	| Comments |
+
+Scenario: Confirm the links in the nav menu dropdowns
 	Given I hover over "ET Flights"
 	Then I should see the following <links>
 | links |
@@ -100,12 +125,9 @@ And I should see the following <links>
 | Other Enquiries |
 | Careers |
 
-Scenario: Access the Contact us via the footer link
 
-
-
-Scenario: Access and test the Contact Us page
-	When I follow the link "ET Contact Us"
+Scenario: Access and test the Contact Us page incl the store finder and location results
+	When I follow the link "Footer Contact us"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should be on "/company/contact-us/overview"
@@ -123,7 +145,6 @@ Scenario: Access and test the Contact Us page
 
 	And I should see the following <text>
 | text |
-| 
 | Travel Bookings and Quotes 1300 556 855 |
 | Online flight enquiries and changes 1300 556 855 |
 | Emergency global assistance +61 7 3170 7847 |
@@ -134,97 +155,65 @@ Scenario: Access and test the Contact Us page
 | Complaints & Compliments 1800 117 747 |
 | Travel Insurance 1300 558 123 |
 
-Then I follow the link "Customer Feedback"
-And I should see the heading "Feedback"
-And I should see "We would like to hear your comments, complaints or suggestions regarding your experience as a customer of Escape Travel. Your feedback helps us to improve this website and the services we provide."
-When I move backward one page
-Then I should see the heading "Contact Us"
+	Then I follow the link "Customer Feedback"
+	And I should see the heading "Feedback"
+	And I should see "We would like to hear your comments, complaints or suggestions regarding your experience as a customer of Escape Travel. Your feedback helps us to improve this website and the services we provide."
+	When I move backward one page
+	Then I should see the heading "Contact Us"
 
-# 	And I should see the heading "Holiday Destinations"
+	Given I click the "Escape Travel Store Finder"
+	And I wait for the page to load
+	Then I should see the heading "Find your local Escape Travel store"
+	When I fill in the "Your Location" field with "4154"
+	And I wait for the page to load
+	Given I click the "Go"
+	And I wait for the page to load
+	Then I should see the heading "Escape Travel Capalaba"
 
+	When I fill in the "Your Location" field with "2000"
+	Given I click the "Go"
+	And I wait for the page to load
+	Then I should see the heading "Escape Travel Broadway"
+	And I should see the heading "Found 9 Locations:"
 
-# Scenario: Access and and check the flights page
-# 	When I follow the link "TA Flights"
-# 	And I wait for the page to load
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	Then I should be on "/flights"
+Scenario: Access the blog page via the footer link and confirm working
+	And I wait for the page to load
+	Given I go to the page "Blog"
+	And I should not see "Sorry, the page you were looking for could not be found."
+	But I should see the heading "Escape Travel Holiday Ideas"
 
-# And I should see the following <text>
+	# Then I should see the text "Search Users" in the "right sidebar" region
 
-# | text            	|
-# | Show Flights From |
-# | If you're seeking expert advice about flights, you've come to the right place.     	|
+Scenario: Access and check the Careers page
+	Given I go to the page "Careers"
+	Then I should see the heading "Job Search"
+	And I should see the heading "The Perfect Career..."
+	When I fill in the "Keywords" field with "new"
+	Then I click the "Submit"
+	# And I wait for the page to load
+	# Then I should be on "http://au.traveljobs.biz/search"
+	# And I should see the heading "Search Results"
 
-# When I select "Brisbane" from the "Show Flights From" selector
-# And I wait for the page to load
-# Then I should see "Brisbane To"
+Scenario: Access and check the Sitemap page
+	Given I go to the page "Site Map"
+	Then I should see the heading "Site Map"
+	And I should see the heading "Flights"
+	When I should see "Search and buy travel insurance policies; from basic cancellation policies through to comprehensive policies."
 
-# #To do: add some tests for the Webform on the flights page
+Scenario: Access and check the Terms and Conditions page
+	Given I go to the page "Terms and Conditions"
+	Then I should see the heading "More policies"
+	And I should see the following <links>
+	| links |
+	| Privacy Policy |
+	| Terms of Use |
+	| Read Important Conditions |
+	| Booking Terms and Conditions |
 
-
-# Scenario: Access and and check the Cruise page
-# 	When I follow the link "TA Cruises"
-# 	And I wait for the page to load
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	Then I should be on "/cruises"
-# 	And I should see the heading "Cruises"
-# 	And I should see "Amasra"
-# 	And I should see "At Travel Associates, the new generation of cruising has arrived. Where dining is world class, onboard activities cater towards niche interests and itineraries have expanded to some of the most isolated and exotic ports in the world. Once you've experienced a luxury cruise holiday with us, you won’t want to travel any other way."
-
-# Scenario: Access and and check the Experiences page
-# 	When I follow the link "TA Experiences"
-# 	And I wait for the page to load
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	Then I should be on "/holiday-experiences/holiday-experiences"
-# 	And I should see the heading "Holiday Experiences"
-# 	And I should see "Interested in Holiday Experiences?"
-# 	And I should see "OUR TRAVEL BLOG"
-# 	And I should see "To find out more about the luxury special interest holidays and other special interest travel options available with Travel Associates call 1800 017 849 or enquire online"
-# 	# Given I hover over "Overwater Bungalows"
-# 	When I click "Overwater Bungalows"
-# 	And I wait for the page to load
-# 	Then I should see the heading "Overwater Bungalows"
-# 	And I should see the heading "What's on offer..."
-# 	When I click "InterContinental Moorea Resort & Spa"
-# 	Then I should see the heading "What's included"
-# 	And I should see "You might also be interested in ..."
-
-# Scenario: Access blog page and check for content
-# 	Given I follow the link "TA Blog"
-# 	And I wait for the page to load
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	Then I should see "Our Travel Blog"
-# 	And I should see "Older posts"
-# 	And I should see "Keep reading"
-
-# Scenario: Go to the contact us page and confirm working
-# 	Given I follow the link "TA Contact"
-# 	And I wait for the page to load
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	Then I should see the following <links>
-# | links |
-# | david_lovelock@travel-associates.com.au	|
-# | Online feedback for		|
-# | Instant callback!			|
-# | Find a store 				|
-# | Terms of Use 				|
-# | Privacy Policy 			|
-
-# 	And I should see the following <text>
-# | text |
-# | Destination from     |
-# | Email us 			   |
-# | Any further details? |
-# | First Name 		   |
-# | Last Name 		   |
-# | Phone 			   |		
-# | Post Code 		   |
-
-# Scenario: Go to the Travel Extras page and confirm working
-# 	Given I follow the link "TA Travel Extras"
-# 	And I wait for the page to load
-# 	And I should not see "Sorry, the page you were looking for could not be found."
-# 	Then I should see "Contact us to tailor-make your experience."
-# 	And I should see "Looking for a little travel inspiration or even a gift idea? Explore our travel extras."
-
+Scenario: Access and check the Privacy Policy page
+	Given I click the "Footer Privacy Policy"
+	And I wait for the page to load
+	Then I should see the heading "Privacy Policy"
+	Then I should see the heading "What is personal information?"
+	And I should see "From time to time it may be necessary for us to review and revise this Policy. We reserve the right to change our Policy at any time and for any reason. If we make a change to the Policy, the revised version will be posted on our website."
 

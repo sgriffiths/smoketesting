@@ -11,7 +11,7 @@ Privacy Policy: "li:contains('Privacy policy') > a"
 Site Map: "li:contains('Site map') > a"
 
 #Careers right sidebar selections
-Why work with Flight Centre: "ul > li:contains('Why work with Flight Centre') > a"
+Why work for Flight Centre: 
 Becoming a Travel Sales Consultant: "ul > li:contains('Becoming a Travel Sales Consultant') > a"
 Our Recruitment Process: "ul > li:contains('Our Recruitment Process') > a"
 Our Culture: "ul > li:contains('Our Culture') > a"
@@ -86,5 +86,16 @@ ET Contact Us: "#block-superfish-1 > ul > li:contains('Contact Us')"
 
 #Contact Us
 Customer Feedback: "div.contentContainer > div:contains('feedback') > p > a"
+Escape Travel Store Finder: "#contactusHeader > p > a"
+Your Location: "#sf-address"
+Go: "#sf-search" 
 
+# Careers
+Keywords: "#job_keywords"
+Submit: "#jobSearchForm > fieldset > div.fieldDivider > input"
+Locate A Store: "form > input[type='postcode']"
 
+#Homepage
+
+Search: "#block-block-56 > div > form > button"
+Email us: "a:contains('Email us')"

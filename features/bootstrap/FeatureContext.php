@@ -89,13 +89,10 @@ class FeatureContext extends DrupalContext
     }
   }
 
-
-
-
    /**
    * @Given /^I should not see the following <texts>$/
    */
-  public function iShouldNotSeeTheFollowingTexts(TableNode $table) {
+  public function iShouldNotSeeTheFollowingText(TableNode $table) {
     $page = $this->getSession()->getPage();
     $table = $table->getHash();
     foreach ($table as $key => $value) {
@@ -109,7 +106,7 @@ class FeatureContext extends DrupalContext
   /**
    * @Given /^I (?:should |)see the following <text>$/
    */
-  public function iShouldSeeTheFollowingTexts(TableNode $table) {
+  public function iShouldSeeTheFollowingText(TableNode $table) {
     $page = $this->getSession()->getPage();
     $messages = array();
     $failure_detected = FALSE;
@@ -196,6 +193,13 @@ public function iScrollDownThePage() {
         $this->getSession()->switchToWindow($popupName);
     }
 
+  /**
+* @Given /^I wait for a new page to load$/
+*/
+  public function iWaitForaNewPageToLoad() {
+      $this->getSession()->wait(5000);
+    }
+
     /**
      * @Then /^I switch back to the original window$/
      */
@@ -222,4 +226,47 @@ public function iScrollDownThePage() {
 
         return $last;
     }
+
+  /**
+   * @Given /^I should see the link "(?P<link>[^"]*)" at the "(?P<position>[^"]*)" in the "(?P<region>[^"]*)"(?:| region)$/
+   */
+  public function iShouldSeeTheLinkAtTheInTheRightSidebar($link, $position, $region) {
+    $page = $this->getSession()->getPage();
+    $error = 0;
+    $curr_url = $this->getSession()->getCurrentUrl();
+    $message = "The page " . $curr_url . " did not contain the specified texts";
+    $region = $page->find('region', $region);
+        if (empty($region)) {
+      throw new Exception("Right sidebar region was not found");
+    }
+    $nodes = $region->findAll('css', '.item-list a');
+    if (sizeof($nodes)) {
+      // get all the categories
+      foreach ($nodes as $node) {
+        $categories[] = $node->getText();
+      }
+      // check for firt element
+      if ($position == "top") {
+        if ($link != $categories[0]) {
+          $error = 1;
+        }
+      }
+      // check for last element
+      elseif ($position == "bottom") {
+        if($link != $categories[sizeof($categories) - 1]) {
+          $error = 1;
+        }
+      }
+      if ($error == 1) {
+        $message = "The page " . $curr_url . " does not contain '" .
+        $link . "' in " . $position . " position";
+      }
+      else {
+        return true;
+      }
+    }
+    throw new Exception($message);
+  }
+
+    
   }
