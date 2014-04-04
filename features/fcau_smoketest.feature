@@ -43,6 +43,7 @@ And I should see the following <text>
 
 Scenario: Access and verify the 'about' page
 	When I follow the link "About Flight Centre Footer"
+	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see the following <links>
 | links |

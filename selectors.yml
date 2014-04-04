@@ -1,6 +1,4 @@
-destination: "#edit-bydestination"
-destination submit: "#edit-submit--3"
-
+### flightcentre.com.au ###
 #footer links
 About Flight Centre Footer: "li:contains('About Flight Centre') > a"
 Contact Us: "li:contains('Contact Us') > a"
@@ -48,7 +46,7 @@ Flight Centre Wynnum Plaza: "li.store-1.store_finder_store > div > span.address"
 Domestic Flights Link: "ul > li:contains('Domestic Flights') > a > span"
 About Flight Centre: "ul > li:contains('About Flight Centre') > h2 > a > span"
 
-#Travel-Associates
+### Travel-Associates ###
 
 TA Destinations: "#menu-2512-1 > a"
 TA Flights: "#menu-2836-1 > a"
@@ -61,12 +59,8 @@ TA Specials: "#menu-8216-1 > a"
 Show Flights From: "#edit-air-ex-points"
 Brisbane: "#edit-air-ex-points > option:contains('Brisbane')"	
 
-Overwater Bungalows: "#content > div.basic-layout-onecol.clearfix.panels-onecol-basic > article > div.panel-pane.pane-entity-field.pane-node-field-holiday-experiences.odd > div > div > div > div:nth-child(1) > div > div > div > a"
-First Offer View Details: "div > div.views-row.views-row-1.views-row-odd.views-row-first > div > span > a > div.product-view-more > span"
-
-# Escape Travel
-
-#Footer
+### Escape Travel ###
+# Footer
 Footer Contact us: "li:contains('Contact Us') > a"
 Footer Blog: "#block-block-51 > div > ul > li:contains('Blog') > a"
 Footer Careers: "#block-block-51 > div > ul > li:contains('Careers') > a"
@@ -84,7 +78,7 @@ ET Tours: "#block-superfish-1 > ul > li:contains('Tours')"
 ET Travel Extras: "#block-superfish-1 > ul > li:contains('Travel Extras')"
 ET Contact Us: "#block-superfish-1 > ul > li:contains('Contact Us')"
 
-#Contact Us
+# Contact Us
 Customer Feedback: "div.contentContainer > div:contains('feedback') > p > a"
 Escape Travel Store Finder: "#contactusHeader > p > a"
 Your Location: "#sf-address"
@@ -99,3 +93,33 @@ Locate A Store: "form > input[type='postcode']"
 
 Search: "#block-block-56 > div > form > button"
 Email us: "a:contains('Email us')"
+
+### anewstoryeverysecond ###
+
+Search: "#edit-keyword"
+Search Button: "#edit-submit"
+Submit Your Story: "#submit-green"
+View Stories: "#submit-orange"
+New Zealand Link: "a:contains('New Zealand')"
+Canada Link: "a:contains('Canada')"
+
+### FCM Travel ###
+Select A Country: "stripepan:contains('Select a country')"
+Select A Country: "span:contains('Select a country')"
+
+#Corporate Traveller
+
+Footer Terms of Use: "a:contains('Terms of Use')"
+Benefits: "#superfish-4 > li > a:contains('Benefits')"
+Services: "#superfish-4 > li > a:contains('Services')"
+Resources: "#superfish-4 > li > a:contains('Resources')"
+About: "#superfish-4 > li > a:contains('About')"
+Blog: "#superfish-4 > li > a:contains('Blog')"
+Case Studies category: "div.views-field.views-field-name > span > a:contains('Case Studies')"
+Destinations Category: "div.views-field.views-field-name > span > a:contains('Destinations')"
+Top Menu Contact Us: "#superfish-2 > li > a:contains('Contact Us')"
+Team Search: "#edit-populate"
+First Name: "#FirstName"
+Last Name : "#LastName"
+Email: "#Email"
+Subscribe: "#mktFrmSubmit"

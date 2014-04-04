@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
@@ -267,6 +267,77 @@ public function iScrollDownThePage() {
     }
     throw new Exception($message);
   }
-
-    
+  /**
+   * @Then /^I should see images in the right sidebar$/
+   */
+  public function iShouldSeeImagesInTheRightSidebar() {
+    $result = $this->getSession()->getPage()->find('css', '#block-block-21 > p > img');
+    if (empty($result)) {
+      throw new Exception('No image found in the right sidebar');
+    }
   }
+  /**
+   * @Then /^I should see images in the left sidebar$/
+   */
+  public function iShouldSeeImagesInTheLeftSidebar() {
+    $result = $this->getSession()->getPage()->find('css', '#block-block-16 > p > img');
+    if (empty($result)) {
+      throw new Exception('No image found in the left sidebar');
+    }
+
+  }
+  /**
+   * @Then /^I should see(?:| at least) "(?P<count>\d+)" links in the "(?P<region>[^"]*)"(?:| region)$/
+   */
+  public function iShouldSeeAtLeastLinksInThe($count, $regionSelector = "sidebar-first") {
+    $page = $this->getSession()->getPage();
+    $region = $page->find('region', $regionSelector);
+    if (empty($region)) {
+      throw new Exception("Left sidebar region was not found");
+    }
+    $links = $region->findAll('css', '.item-list a');
+    if (sizeof($links) < $count) {
+      throw new Exception("The page has less than '" . $count . "' links in the region '" . $regionSelector . "'");
+    }
+  }
+
+  /**
+   * @Given /^I should see at least "([^"]*)" records(?:|s)$/
+   */
+  public function iShouldSeeAtLeastRecords($count) {
+    $element = $this->getSession()->getPage();
+    // counts the number of rows in the view table
+    $records = $this->getViewDisplayRows($element);
+    if ($records == "" || sizeof($records) < $count) {
+        throw new Exception("The page (" . $this->getSession()->getCurrentUrl() .
+         ") has less than " . $count . " records");
+    }
+  } 
+
+  /**
+   * Function to get the array of records from the current view listing
+   * @param $page Object The page object to look into
+   * @return $result Array An array of items
+  */
+  private function getViewDisplayRows($page) {
+    $result = "";
+    $classes = array(
+      'table' => '.view table.views-table tr',
+      'grid' => '.view table.views-view-grid tr td',
+      'row' => '.view div.views-row',
+      'row li' => '.view li.views-row',
+      'sitewide search' => 'ol.search-results dt',
+      'emails table' => '#multiple-email-manage table tbody tr',
+      'profiles' => '#profile div.profile',
+      'search result' => 'li.search-result',
+      'marketplace' => '.view .view-content .node-organization'
+    );
+    foreach ($classes as $type => $class) {
+      $result = $page->findAll('css', $class);
+      if (!empty($result)) {
+        break;
+      }
+    }
+    return $result;
+  }
+}
