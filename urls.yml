@@ -16,3 +16,6 @@ Appointment: "/appointment"
 23 Secrets: "/benefits/business-travel-specials/offers/23-secrets-cutting-business-travel-costs"
 Emergency: "/afterhours"
 Search for 4000: "/team-finder?populate=4000"
+Locate Store: "/company/contact-us/store-finder?postcode=4154"
+
+Google: "/"

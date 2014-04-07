@@ -16,4 +16,4 @@
      <arg line="-c sauce.yml -f html --out ${basedir}/report/report.html"/>
     </exec>
    </target>
-</project>escape
+</project>

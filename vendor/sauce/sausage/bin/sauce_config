@@ -5,7 +5,7 @@ require_once dirname(__FILE__).'/../src/Sauce/Sausage/SauceConfig.php';
 
 use Sauce\Sausage\SauceConfig;
 
-$USAGE = "USAGE: sauce_config USERNAME ACCESS_KEY";
+$USAGE = "USAGE: sauce_config scottyg 57414aef-4c65-45cd-b2ad-e935f99bfa9e";
 
 if (!isset($argv[1]) || !isset($argv[2])) {
     echo $USAGE;

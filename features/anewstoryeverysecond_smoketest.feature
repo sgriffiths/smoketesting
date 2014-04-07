@@ -23,7 +23,7 @@ Scenario: Confirm the homepage contains certain elements, text, headings and ima
 
 Scenario: Fill in the search field and confirm results
 	Given I fill in the "Search" field with "New Years Eve"
-	When I click the "Search Button"
+	When I click the "Searching Button"
 	Then print current URL
 	Then I should see the heading "A memorable New Years Eve"
 	And I should see the following <links>

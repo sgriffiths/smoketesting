@@ -8,9 +8,7 @@ Background: All tests start at the homepage
      Given I go to the page "Corporate Traveller Home Page" 
 
 Scenario: 	
-	Given I should see "Join our growing list of clients"
-	And I should see "2014 Australian OpCo Pty Ltd (ABN 20 003 279 534) trading as Corporate Traveller. All Rights Reserved."
-	And I should see "Subscribe now to receive exclusive business travel news and offers"
+	And I should see "Flight Centre (NZ) Limited trading as Corporate Traveller"
 	And I should see the following <links>
 	| links |
 	| Cost savings 		  |
@@ -27,13 +25,11 @@ Scenario:
 	| Expert knowledge    |
 
 Scenario: Confirm the Links and page content for the footer links
-
-	Given I click the "Footer Terms of Use"
-	# And I should be on "/website-terms-use"
+	Given I click the "Footer Terms and Conditions"
 	And print current URL
-	Then I should see the heading "Website Terms of Use"
-	And I should see the heading "14. Our relationship"
-	And I should see "This website is owned and operated by Australian OpCo Pty Ltd ABN 20 003 279 534"
+	Then I should see the heading "Booking Terms & Conditions"
+	And I should see "Prices"
+	And I should see "Refunds, Changes and Cancellation Fees:"
 
 Scenario: Confirm the superfish top menu dropdown links and login page access
 	When I hover over "Top Menu Contact Us"
@@ -41,15 +37,8 @@ Scenario: Confirm the superfish top menu dropdown links and login page access
 	Then I should see the following <links>
 	|links|
 	|Appointment|
-	|Enquire|
 	|Find a team|
 	|After hours|
-	|Subscriptions|
-#login
-	Then I should see the following <links>
-	|links|
-	|e3 Online Booking Tool|
-	|Serko Online Booking Tool|
 #Countries
 	Then I should see the following <links>
 	|links|
@@ -61,42 +50,35 @@ Scenario: Confirm the superfish top menu dropdown links and login page access
 
 	Then I click the "Top Menu Contact Us"
 	And I wait for the page to load
-	Then I should see the heading "Enquire"
-	And I should see "Please fill out the form below if you have an enquiry about how we can help you with your company's business travel."
+	Then I should be on "benefits/your-local-corporate-travel-team"
+	Then I should see the heading "Your Local Corporate Travel Team"
+	And I should see "Corporate Traveller stores:"
 
 Scenario: Select links and confirm pages from the right sidebar
 	When I go to the page "Appointment"
 	And I wait for the page to load
+	Then print current URL
 	Then I should see the heading "Appointment"
 	And I should see the following <text>
 	|text|
 	|First Name|
 	|Last Name|
 	|Phone|
-	When I go to the page "Team Finder"
-	And I wait for the page to load
-	Then I should see the heading "Team finder"
-	And I should see "Search by team, phone, suburb or postcode"
-	When I fill in the "Team Search" field with "4000"
-	And I go to the page "Search for 4000"
-	Then I should see "Suite 3 Level 11, 316 Adelaide St Brisbane QLD 4000 Australia"
 
 	When I go to the page "Emergency"
 	And I wait for the page to load
 	Then I should see the heading "After Hours Emergency Assistance"
-	And I should see "To contact our Emergency Assist Team please dial the following numbers, depending which state you are calling from."
-	And I should see "Australia, call 1300 415 269. Overseas, call +61 7 3170 7863"
-
-	When I go to the page "23 Secrets"
-	And I wait for the page to load	
-	Then I should not see "Page not found"
+	And I should see "To contact our Emergency Assist Team please dial one of the numbers below."
+	And I should see "0800 838 010"
 
 Scenario: Able to subscribe
-	Given I fill in the "First Name" field with "Bob"
-	Then I fill in the "Last Name" field with "Tester"
-	And I fill in the "Email" field with "test.mavericks@flightcentre.com.au"
-	When I click the "Subscribe"
-	Then I should see "Thank you for subscribing to our monthly news and offer emails."
+	Given I fill in the "First Name NZ" field with "Bob"
+	Then I fill in the "Last Name NZ" field with "Tester"
+	And I select "Arts" from the "Industry" selector
+	And I fill in the "Email NZ" field with "test.mavericks@flightcentre.com.au"
+	When I click the "Submit NZ"
+	And I wait for the page to load
+	Then I should see "Thank you for your interest. We will be in contact shortly."
 
 Scenario: Go to the 'Benefits' page and confirm the sub links, page headings and sidebar content
 	When I click the "Benefits"
@@ -109,9 +91,8 @@ Scenario: Go to the 'Benefits' page and confirm the sub links, page headings and
 	And I should see the following <links>
 	|links|
 	| Domestic airfares |
-	| Mining |
 	| Policy compliance |
-	| 24 hour assistance |
+	| Travel insurance |
 	When I click "Reporting"
 	Then print current URL
 	And I wait for the page to load
@@ -134,7 +115,6 @@ Scenario: Go to the 'Services' page and confirm the sub links, page headings and
 	Then I should see "Best rate of the day"
 	And I should be on "/services/business-travel-management/best-rate-of-the-day"
 
-
 Scenario: Go to the 'Resources' page and confirm the sub links, page headings and sidebar content
 	When I click the "Resources"
 	Then print current URL
@@ -145,27 +125,27 @@ Scenario: Go to the 'Resources' page and confirm the sub links, page headings an
 	|links|
 	| Domestic airports|
 	| Airline lounges |
-	| Events |
-	When I click "Event calendar"
+	| Intouch Magazine |
+	When I click "Airline lounges"
 	And I wait for the page to load
-	Then I should see "Australian Public Holidays"
-	And I should be on "/resources/events/calendar"
+	Then I should see "Corporate Traveller has provided a list of airline lounges and their locations."
+	And I should be on "/resources/travellers/airline-lounges"
 
 Scenario: Go to the 'About' page and confirm the sub links, page headings and sidebar content
 	When I click the "About"
 	Then print current URL
 	And I wait for the page to load
-	Then I should see the heading "Business Travel Experts - About Us"
-	Then I should see "Careers"
+	Then I should see "Our Story"
+	Then I should see "Resources"
 	And I should see the following <links>
 	|links|
 	| Green travel|
 	| Our blog|
 	| Media contact |
-	When I click "Our client"
+	When I click "Flight Centre Foundation"
 	And I wait for the page to load
-	Then I should see "Some of the clients we look after:"
-	And I should be on "/about/our-clients"
+	Then I should see "The Flight Centre Foundation is the heart of Flight Centre New Zealand’s corporate and social responsibility platform."
+	And I should be on "/flight-centre-foundation"
 
 Scenario: Go to the 'Blog' page and confirm the sub links, sidebar items and blog categories also makes sure there is at least 5 records
 	Given I click the "Blog"
@@ -176,11 +156,9 @@ Scenario: Go to the 'Blog' page and confirm the sub links, sidebar items and blo
 	And I should see "Continue reading"
 	Given I click the "Case Studies category"
 	And I wait for the page to load
-	Then I should see at least "3" records
+	Then I should see at least "1" records
 	And I should see the heading "Category Archives: Case Studies"
 	Then I click the "Destinations Category"
-	Then I should see at least "10" records
+	Then I should see at least "1" records
 	And I should see the heading "Category Archives: Destinations"
-
-
 

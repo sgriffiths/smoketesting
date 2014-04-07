@@ -4,3 +4,9 @@ Fail.*
 .DS_Store
 chromedriver*
 screenshots/
+runselenium.sh
+WebDriverDemo.php
+console output/
+drupalfeaturecontext.php
+features/mytest.feature
+sauce.yml

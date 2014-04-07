@@ -87,11 +87,6 @@ escape-travel:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-    # Drupal\DrupalExtension\Extension:
-    #   blackbox: ~
-    #   drupal:
-    #   region_map:
-    #     footer: "#footer"
 
 anewstoryeverysecond:
   extensions:
@@ -125,12 +120,28 @@ fcmtravel:
       contexts:
         UIBusinessSelector: ~
 
+test:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://google.com.au
+      javascript_session: 'selenium2'
+      browser_name: chrome
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+
 corporate-traveller-au:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://corporatetraveller.com.au
       javascript_session: 'selenium2'
-      browser_name: chrome
+      browser_name: firefox
       selenium2:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
@@ -153,7 +164,7 @@ corporate-traveller-nz:
     Behat\MinkExtension\Extension:
       base_url: http://corporatetraveller.co.nz
       javascript_session: 'selenium2'
-      browser_name: chrome
+      browser_name: firefox
       selenium2:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:

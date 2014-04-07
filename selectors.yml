@@ -97,7 +97,7 @@ Email us: "a:contains('Email us')"
 ### anewstoryeverysecond ###
 
 Search: "#edit-keyword"
-Search Button: "#edit-submit"
+Searching Button: "#edit-submit"
 Submit Your Story: "#submit-green"
 View Stories: "#submit-orange"
 New Zealand Link: "a:contains('New Zealand')"
@@ -107,7 +107,7 @@ Canada Link: "a:contains('Canada')"
 Select A Country: "stripepan:contains('Select a country')"
 Select A Country: "span:contains('Select a country')"
 
-#Corporate Traveller
+#Corporate Traveller AU
 
 Footer Terms of Use: "a:contains('Terms of Use')"
 Benefits: "#superfish-4 > li > a:contains('Benefits')"
@@ -123,3 +123,17 @@ First Name: "#FirstName"
 Last Name : "#LastName"
 Email: "#Email"
 Subscribe: "#mktFrmSubmit"
+
+#corporate traveller NZ
+
+Footer Terms and Conditions: "a:contains('Terms and Conditions')"
+Industry: "#edit-submitted-industry"
+First Name NZ: "#edit-submitted-first-name"
+Last Name NZ: "#edit-submitted-last-name"
+Email NZ: "#edit-submitted-email"
+Submit NZ: "#edit-submit--2"
+
+
+#Testing
+Search Button: "#gbqfb"
+First Result: "#rso > div:nth-child(1) > li:nth-child(1) > div > h3 > a"

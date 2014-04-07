@@ -525,7 +525,6 @@ Scenario: Go to the fcm.travel home page and select Yemen and confirm the result
 	And I should see "PO BOX 19354, Haddah Street, Sanaa, Yemen"
 	Then print current URL
 
-
 #pacific
 Scenario: Go to the fcm.travel home page and select Australia and confirm the resulting page details
 	Given I hover over "Select A Country"

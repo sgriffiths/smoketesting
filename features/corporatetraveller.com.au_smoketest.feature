@@ -7,7 +7,7 @@ Feature: Perform smoke tests on the corporatetraveller.com.au site
 Background: All tests start at the homepage
      Given I go to the page "Corporate Traveller Home Page" 
 
-Scenario: 	
+Scenario: Access and validate the corporate traveller home page links, Text and headings
 	Given I should see "Join our growing list of clients"
 	And I should see "2014 Australian OpCo Pty Ltd (ABN 20 003 279 534) trading as Corporate Traveller. All Rights Reserved."
 	And I should see "Subscribe now to receive exclusive business travel news and offers"
@@ -48,8 +48,7 @@ Scenario: Confirm the superfish top menu dropdown links and login page access
 #login
 	Then I should see the following <links>
 	|links|
-	|e3 Online Booking Tool|
-	|Serko Online Booking Tool|
+	|Login|
 #Countries
 	Then I should see the following <links>
 	|links|
@@ -68,11 +67,7 @@ Scenario: Select links and confirm pages from the right sidebar
 	When I go to the page "Appointment"
 	And I wait for the page to load
 	Then I should see the heading "Appointment"
-	And I should see the following <text>
-	|text|
-	|First Name|
-	|Last Name|
-	|Phone|
+	
 	When I go to the page "Team Finder"
 	And I wait for the page to load
 	Then I should see the heading "Team finder"
@@ -91,7 +86,7 @@ Scenario: Select links and confirm pages from the right sidebar
 	And I wait for the page to load	
 	Then I should not see "Page not found"
 
-Scenario: Able to subscribe
+Scenario: Able to subscribe and get a valid response back
 	Given I fill in the "First Name" field with "Bob"
 	Then I fill in the "Last Name" field with "Tester"
 	And I fill in the "Email" field with "test.mavericks@flightcentre.com.au"
@@ -179,6 +174,7 @@ Scenario: Go to the 'Blog' page and confirm the sub links, sidebar items and blo
 	Then I should see at least "3" records
 	And I should see the heading "Category Archives: Case Studies"
 	Then I click the "Destinations Category"
+	And I wait for the page to load
 	Then I should see at least "10" records
 	And I should see the heading "Category Archives: Destinations"
 

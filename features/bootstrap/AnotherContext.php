@@ -1,30 +1,20 @@
-// <?php
+  <?php
 
-// use Behat\Behat\Context\BehatContext;
+// use Behat\Gherkin\Node\PyStringNode,
+//     Behat\Gherkin\Node\TableNode;
+// use Behat\MinkExtension\Context\MinkContext,
+//     OrangeDigital\BusinessSelectorExtension\Context\BusinessSelectorContext;
 
-// require_once 'PHPUnit/Autoload.php';
-// require_once 'PHPUnit/Framework/Assert/Functions.php';
+// use Drupal\DrupalExtension\Context\DrupalContext,
+//     Drupal\DrupalExtension\Event\EntityEvent;
 
-// class FeatureContext extends BehatContext
-// {
-//     public function __construct(array $parameters)
+
+// class Subcontext extends FeatureContext
+// {    
+
+
+//     public function iKnowImOnThePageWhenISee($text)
 //     {
-//         $this->useContext('subcontext_alias', new AnotherContext());
+//         $this->assertSession()->pageTextContains($this->fixStepArgument($text));
 //     }
-
-//     /** @BeforeFeature */
-//     public static function prepareForTheFeature()
-//     {} // clean database or do other preparation stuff
-
-//     /** @Given /^we have some context$/ */
-//     public function prepareContext()
-//     {} // do something
-
-//     /** @When /^event occurs$/ */
-//     public function doSomeAction()
-//     {} // do something
-
-//     /** @Then /^something should be done$/ */
-//     public function checkOutcomes()
-//     {} // do something
 // }
