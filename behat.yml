@@ -33,7 +33,7 @@ chrome:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-
+ 
 sauce:
   extensions:
     Behat\MinkExtension\Extension:
@@ -42,7 +42,7 @@ sauce:
      goutte:
      selenium2:
         browser: firefox
-        wd_host: scottyg:57414aef-4c65-45cd-b2ad-e935f99bfa9e@ondemand.saucelabs.com/wd/hub
+        wd_host: 
         capabilities: {  "platform": "Windows 7" , "version": "21" , "name":"Test" }
 
 sauce_ct:
@@ -53,7 +53,7 @@ sauce_ct:
      goutte:
      selenium2:
         browser: firefox
-        wd_host: scottyg:57414aef-4c65-45cd-b2ad-e935f99bfa9e@ondemand.saucelabs.com/wd/hub
+        wd_host: 
         capabilities: {  "platform": "Windows 7" , "version": "21" , "name":"corporatetraveller" }
 
 travel-associates:
