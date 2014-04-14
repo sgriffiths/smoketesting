@@ -161,4 +161,3 @@ Scenario: Go to the 'Blog' page and confirm the sub links, sidebar items and blo
 	Then I click the "Destinations Category"
 	Then I should see at least "1" records
 	And I should see the heading "Category Archives: Destinations"
-

@@ -1,51 +1,3 @@
-### flightcentre.com.au ###
-#footer links
-About Flight Centre Footer: "li:contains('About Flight Centre') > a"
-Contact Us: "li:contains('Contact Us') > a"
-Careers: "li:contains('Careers') > a"
-Terms & Conditions: "li:contains('Terms & Conditions') > a"
-Terms of use: "li:contains('Terms of use') > a"
-Privacy Policy: "li:contains('Privacy policy') > a"
-Site Map: "li:contains('Site map') > a"
-
-#Careers right sidebar selections
-Why work for Flight Centre: 
-Becoming a Travel Sales Consultant: "ul > li:contains('Becoming a Travel Sales Consultant') > a"
-Our Recruitment Process: "ul > li:contains('Our Recruitment Process') > a"
-Our Culture: "ul > li:contains('Our Culture') > a"
-Career Progression & Development: "ul > li:contains('Career Progression & Development') > a"
-Graduate Program: "ul > li:contains('Graduate Program') > a"
-Flight Centre Travel Academy: "ul > li:contains('Flight Centre Travel Academy') > a"
-News & Events: "ul > li:contains('News & Events') > a"
-Frequently Asked Questions: "ul > li:contains('Frequently Asked Questions') > a"
-
-#Nav tabs
-Flights: "ul > li:contains('flights') > a"
-Holiday Packages: "ul > li:contains('Holiday Packages') > a"
-Hotels: "ul > li:contains('Hotels') > a"
-Rail: "ul > li:contains('Rail') > a"
-Tours: "ul > li:contains('Tours') > a"
-Cruises: "ul > li:contains('Cruises') > a"
-Extras: "ul > li:contains('Extras') > a"
-Destinations: "ul > li:contains('Destinations') > a"
-Deals: "ul > li:contains('Deals') > a"
-
-#Search
-Search Button: "#suggestion_form_gs > button"
-Search Field: "#suggestion_form_gs > input"
-
-#Postcode Search
-
-Postcode: "#postcode"
-Find Store Button: "div.storeLocator > form > button"
-Flight Centre Manly West: "li.store-0.stripe.store_finder_store > div > span.address"
-Flight Centre Wynnum Plaza: "li.store-1.store_finder_store > div > span.address"
-
-#Cheap Flights, Holidays and Travel Deals
-
-Domestic Flights Link: "ul > li:contains('Domestic Flights') > a > span"
-About Flight Centre: "ul > li:contains('About Flight Centre') > h2 > a > span"
-
 ### Travel-Associates ###
 
 TA Destinations: "#menu-2512-1 > a"
@@ -91,12 +43,12 @@ Locate A Store: "form > input[type='postcode']"
 
 #Homepage
 
-Search: "#block-block-56 > div > form > button"
+Search: "button:contains('Search')"
 Email us: "a:contains('Email us')"
 
 ### anewstoryeverysecond ###
 
-Search: "#edit-keyword"
+Story Search: "#edit-keyword"
 Searching Button: "#edit-submit"
 Submit Your Story: "#submit-green"
 View Stories: "#submit-orange"
@@ -107,7 +59,7 @@ Canada Link: "a:contains('Canada')"
 Select A Country: "stripepan:contains('Select a country')"
 Select A Country: "span:contains('Select a country')"
 
-#Corporate Traveller AU
+## Corporate Traveller AU ##
 
 Footer Terms of Use: "a:contains('Terms of Use')"
 Benefits: "#superfish-4 > li > a:contains('Benefits')"
@@ -124,7 +76,7 @@ Last Name : "#LastName"
 Email: "#Email"
 Subscribe: "#mktFrmSubmit"
 
-#corporate traveller NZ
+## corporate traveller NZ
 
 Footer Terms and Conditions: "a:contains('Terms and Conditions')"
 Industry: "#edit-submitted-industry"
@@ -133,7 +85,67 @@ Last Name NZ: "#edit-submitted-last-name"
 Email NZ: "#edit-submitted-email"
 Submit NZ: "#edit-submit--2"
 
+## mobile flightcentre.co.uk ##
+
+Airfare Deals: "li:contains('Airfare Deals') > a"
+Holiday Deals: "li:contains('Holiday Deals') > a"
+City Break Deals: "li:contains('City Break Deals') > a"
+Deals of the Week: "li:contains('Deals of the Week') > a"
+Call Us Now: ""
+Email Us: "li:contains('Email us') > a"	
+Stores: "span:contains('Stores')"
+
+All Airfare Deals: "li:contains('Airfare Deals') > a"
+By Destination: "li:contains('Destination') > a"
+Auckland: "ul > li > ul > li:contains('Auckland') > a"
+By Airline: "li:contains('By Airline') > a"
+By Upgrade Class: "li:contains('By Upgrade Class') > a"
+
+All Holiday Deals: "li:contains('All holiday deals') > a"
+Holidays By Destination: "li:contains('By Destination') > a"
+All Inclusive Holidays: "li:contains('All Inclusive Holidays') > a"
+By Budget: "li:contains('By Budget') > a"
+
+All City Breaks Deals: "li:contains('All City Breaks Deals') > a"
+Europe City Deals: "li:contains('Europe City Deals') > a"
+USA City Deals: "li:contains('USA City Deals') > a"
+Dubai Deals: "li:contains('Dubai Deals') > a"
+Far East Deals: "li:contains('Far East Deals') > a"
+Stores: "span:contains('Stores')"
+Location: "input[type='search']"
+Search: "#edit-submit"
+
+All Regions: "#edit-submitted-region-select"
+All Destinations: "#edit-submitted-city-select"
+All Airports: "edit-submitted-departure"
+All Airlines: "edit-submitted-airlines"
+All Cabin Classes: "edit-submitted-flight-class"
+New Zealand: "#edit-submitted-region-select > option:contains('New Zealand')"
+All New Zealand Destinations: "#edit-submitted-city-select"
+Christchurch: "#edit-submitted-city-select > option:contains('Christchurch')"
+
+#METAU
+
+ET Search: "#edit-search-block-form--2"
+First Result: ".search-snippet-info > .search-snippet"
+Send: "#edit-submit"
+Share: "#quicktabs-tab-product_tabs-0"
+Enquire: "#quicktabs-tab-product_tabs-1" 
+Enquire Submit: "#edit-submit--2"
+Ctools Jump Menu: "#edit-jump--2"
+Destination Dropdown: "#edit-destination"
+Holiday Type: "#edit-field-product-tags-tid"
+First Holiday Product: ".product-details"
+International Tab: "#edit-destination-2"
+
 
 #Testing
 Search Button: "#gbqfb"
-First Result: "#rso > div:nth-child(1) > li:nth-child(1) > div > h3 > a"
+Testing First Result: "#rso > div:nth-child(1) > li:nth-child(1) > div > h3 > a"
+
+Login: "#edit-submit"
+
+
+
+
+

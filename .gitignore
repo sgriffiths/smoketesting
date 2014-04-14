@@ -10,3 +10,6 @@ console output/
 drupalfeaturecontext.php
 features/mytest.feature
 sauce.yml
+*vendor
+sc-4.0-osx/
+PhantomCSS

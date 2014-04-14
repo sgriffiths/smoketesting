@@ -8,7 +8,6 @@ Background: All tests to start at the 'anewstoryeverysecond' homepage
 	Given I go to the page "anewstoryeverysecond Homepage"
 	And I should not see "Sorry, the page you were looking for could not be found."
 
-
 Scenario: Confirm the homepage contains certain elements, text, headings and images appear
 	Then I should see the heading "Every second, every day a new story unfolds. They are stories of love, adventure, family, business and simply pleasure."
 	And I should see the following <links>
@@ -20,25 +19,6 @@ Scenario: Confirm the homepage contains certain elements, text, headings and ima
 	And I should see "Can we reach 2000 stories by Global?"
 	Then I should see images in the right sidebar
 	Then I should see images in the left sidebar
-
-Scenario: Fill in the search field and confirm results
-	Given I fill in the "Search" field with "New Years Eve"
-	When I click the "Searching Button"
-	Then print current URL
-	Then I should see the heading "A memorable New Years Eve"
-	And I should see the following <links>
-	|links|
-	| Featured |
-	| Australia |
-	| Canada |
-	| China / Hong Kong |
-	| Dubai |
-	| India |
-	| New Zealand  |
-	| Singapore    |
-	| South Africa |
-	| USA |
-	| UK  |
 
 Scenario: Select the 'submit your story' link and verify fields
 	Given I click the "Submit Your Story"
@@ -63,4 +43,22 @@ Scenario: Filter the stories by country
 	Then I should be on "/canada"
 	And I should see "Read More"
 
-
+Scenario: Fill in the search field and confirm results
+	# Then I click the "Search"
+	Given I fill in the "Story Search" field with "New Years Eve"
+	When I click the "Searching Button"
+	Then print current URL
+	Then I should see the heading "A memorable New Years Eve"
+	And I should see the following <links>
+	|links|
+	| Featured |
+	| Australia |
+	| Canada |
+	| China / Hong Kong |
+	| Dubai |
+	| India |
+	| New Zealand  |
+	| Singapore    |
+	| South Africa |
+	| USA |
+	| UK  |

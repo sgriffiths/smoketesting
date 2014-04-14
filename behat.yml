@@ -15,6 +15,31 @@ default:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer: "#footer"
+        left sidebar: ".region-sidebar-first"
+
+flightcentre:
+  paths:
+    features: 'features'
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://flightcentre.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors_fcau.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
 
 chrome:
   paths:
@@ -26,24 +51,15 @@ chrome:
       browser_name: chrome
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
  
 sauce:
   extensions:
     Behat\MinkExtension\Extension:
-     base_url: http://flightcentre.com.au
-     javascript_session:  'selenium2'
-     goutte:
-     selenium2:
-        browser: firefox
-        wd_host: 
-        capabilities: {  "platform": "Windows 7" , "version": "21" , "name":"Test" }
+      base_url: http://fcfoundation.org.au
+      selenium2:
+       browser: firefox
+       wd_host: scottyg:57414aef-4c65-45cd-b2ad-e935f99bfa9e@ondemand.saucelabs.com/wd/hub
+       capabilities: { "platform":"Linux","version":"21","name":"fcfoundation smoke tests | FF 21" }
 
 sauce_ct:
   extensions:
@@ -64,29 +80,15 @@ travel-associates:
       browser_name: chrome
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path   
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
 
 escape-travel:
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: http://www.escapetravel.com.au/
+      base_url: htdocstp://www.escapetravel.com.au/
       javascript_session: 'selenium2'
-      browser_name: chrome
+      browser_name: firefox
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
 
 anewstoryeverysecond:
   extensions:
@@ -96,13 +98,6 @@ anewstoryeverysecond:
       browser_name: chrome
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
 
 fcmtravel:
   extensions:
@@ -112,13 +107,6 @@ fcmtravel:
       browser_name: firefox
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
 
 test:
   extensions:
@@ -128,13 +116,6 @@ test:
       browser_name: chrome
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
 
 corporate-traveller-au:
   extensions:
@@ -144,20 +125,6 @@ corporate-traveller-au:
       browser_name: firefox
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
-    Drupal\DrupalExtension\Extension:
-      blackbox: ~
-      drush:
-        root: /Applications/XAMPP/htdocs/drupal/sites
-      region_map:
-        footer: "#footer"
-        left sidebar: ".region-sidebar-first"
 
 corporate-traveller-nz:
   extensions:
@@ -167,17 +134,48 @@ corporate-traveller-nz:
       browser_name: firefox
       selenium2:
       goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
-    Drupal\DrupalExtension\Extension:
-      blackbox: ~
-      drush:
-        root: /Applications/XAMPP/htdocs/drupal/sites
-      region_map:
-        footer: "#footer"
-        left sidebar: ".region-sidebar-first"
+
+corporate-traveler-us:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://corporatetraveler.us
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+fcfoundation:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://fcfoundation.org.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+fctravelclub:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://fctravelclub.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+m-flightcentre.co.uk:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://m.flightcentre.co.uk
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+m-escapetravel.com.au:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://m.escapetravel.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~

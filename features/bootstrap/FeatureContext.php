@@ -8,6 +8,10 @@ use Behat\MinkExtension\Context\MinkContext,
 use Drupal\DrupalExtension\Context\DrupalContext,
     Drupal\DrupalExtension\Event\EntityEvent;
 
+// use Behat\Mink\Mink,
+//     Behat\Mink\Session,
+//     Behat\Mink\Driver\Selenium2Driver;
+
 
 class FeatureContext extends DrupalContext
 {
@@ -138,6 +142,22 @@ class FeatureContext extends DrupalContext
         throw new Exception("The link '" . $link . "' was not found");
       }
     }
+  }
+
+  /**
+   * @Then /^I (?:|should )see the following <heading>$/
+   */
+  public function iShouldSeeTheFollowingHeading($heading) {
+    $element = $this->getSession()->getPage();
+    foreach (array('h1', 'h2', 'h3', 'h4', 'h5', 'h6') as $tag) {
+      $results = $element->findAll('css', $tag);
+      foreach ($results as $result) {
+        if ($result->getText() == $heading) {
+          return;
+        }
+      }
+    }
+    throw new \Exception(sprintf("The text '%s' was not found in any heading on the page %s", $heading, $this->getSession()->getCurrentUrl()));
   }
 
   /**
@@ -340,4 +360,66 @@ public function iScrollDownThePage() {
     }
     return $result;
   }
+
+  /**
+  *
+  * @Then I click the first search result
+  */
+  public function iClickTheFirstSearchResult() {
+    $Result = $this->getSession()->getPage()->find("css", "#content > ol > li:nth-child(1)");
+    if (empty($Result)) {
+      throw new Exception("The page contains no results");
+      
+    }
+      $result->click();
+    // Wait for the page to load.
+    sleep(2);
+  }
+
+  /**
+   * Click on the first result link on the search results page
+   *
+   * @Given /^I follow the first search result$/
+   */
+  public function iFollowTheFirstSearchResult() {
+    $result = $this->getSession()->getPage()->find("css", "#content > ol > li:nth-child(1)");
+    if (empty($result)) {
+      throw new Exception("The page does not contain any results");
+    }
+    $result->click();
+    // Wait for the page to load.
+    sleep(2);
+  }
+
+   /**
+   *
+   * @Then /^I click on the link$/
+   */ 
+
+   public function clickonthelink(){
+    $link = $this->getSession()->getPage()->find("css", "#quicktabs-tab-product_tabs-1");
+
+    if (empty($link)) {
+      throw new Exception("Element not found");
+    }
+
+    $link->click();
+
+   }
+    // /**
+    //  * @Given /^I switch to window "([^"]*)"$/
+    //  */
+    // public function iSwitchToWindow($arg1)
+    // {
+    // $this->getSession()->wait(5000);
+    // $this->getSession()->switchToWindow($arg1);
+    // }
+
+    // /**
+    // * @Then /^I get window names$/
+    // */
+    // public function iGetWindowNames()
+    // {
+    //     return $this->wdSession->window_handles();
+    // }
 }

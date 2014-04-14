@@ -27,9 +27,7 @@ Scenario: Access and validate the corporate traveller home page links, Text and 
 	| Expert knowledge    |
 
 Scenario: Confirm the Links and page content for the footer links
-
 	Given I click the "Footer Terms of Use"
-	# And I should be on "/website-terms-use"
 	And print current URL
 	Then I should see the heading "Website Terms of Use"
 	And I should see the heading "14. Our relationship"
@@ -177,6 +175,3 @@ Scenario: Go to the 'Blog' page and confirm the sub links, sidebar items and blo
 	And I wait for the page to load
 	Then I should see at least "10" records
 	And I should see the heading "Category Archives: Destinations"
-
-
-

@@ -8,13 +8,11 @@ Background: All tests to start at the homepage
 	Given I go to the page "ET Home Page"
 	And I should not see "Sorry, the page you were looking for could not be found."
 
-
 Scenario: Access and confirm the links, heading, text  on the 'homepage'
 	Then I should see the following <links>
 | links |
 | Flights         		|
 | Holidays          	|
-| Hotels 			    |
 | Hot Deals         	|
 | Cruises               |
 | Tours 	   		    |
@@ -34,13 +32,14 @@ And I should see the following <links>
 
 Scenario: Homepage locate a store functionality
 	Given I fill in the "Locate A Store" field with "4154"
-	And I click the "Search"
+	Then I go to the page "Locate Store"
 	And I wait for the page to load
 	Then I should see the heading "Find your local Escape Travel store"
 	Then I should see the heading "Escape Travel Capalaba"
 
 Scenario: Homepage Email Us link and form check
 	Given I click the "Email us"
+	And I wait for the page to load
 	Then I should be on "/company/contact-us/enquiry"
 	And I should see the heading "Travel details"
 	And I should see the heading "Your details"
@@ -125,23 +124,16 @@ Scenario: Confirm the links in the nav menu dropdowns
 | Other Enquiries |
 | Careers |
 
-
 Scenario: Access and test the Contact Us page incl the store finder and location results
 	When I follow the link "Footer Contact us"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
-	Then I should be on "/company/contact-us/overview"
+	Then I should be on "/company/contact-us"
 	And I should see the heading "Store Locator"
 	Then I should see the following <links>
 | links |
 | Update details	|
 | Unsubscribe		|
-| Important Terms and Conditions	|
-| Booking Terms and Conditions 		|
-| Terms of Use 						|
-| Privacy Policy					|
-| Subscribe							|
-| Site Map 							|
 
 	And I should see the following <text>
 | text |
@@ -182,17 +174,12 @@ Scenario: Access the blog page via the footer link and confirm working
 	And I should not see "Sorry, the page you were looking for could not be found."
 	But I should see the heading "Escape Travel Holiday Ideas"
 
-	# Then I should see the text "Search Users" in the "right sidebar" region
-
 Scenario: Access and check the Careers page
 	Given I go to the page "Careers"
 	Then I should see the heading "Job Search"
 	And I should see the heading "The Perfect Career..."
 	When I fill in the "Keywords" field with "new"
 	Then I click the "Submit"
-	# And I wait for the page to load
-	# Then I should be on "http://au.traveljobs.biz/search"
-	# And I should see the heading "Search Results"
 
 Scenario: Access and check the Sitemap page
 	Given I go to the page "Site Map"

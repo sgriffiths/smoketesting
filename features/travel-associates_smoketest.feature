@@ -8,7 +8,6 @@ Background: All test to start at the homepage
 	Given I go to the page "TA Home Page"
 	And I should not see "Sorry, the page you were looking for could not be found."
 
-
 Scenario: Access and check the 'homepage' links, headings, text and phone numbers
 	Then I should see the following <links>
 | links |
@@ -71,7 +70,6 @@ And I should see the following <text>
 | Adventure Cruises 	|
 | Family Cruises 		|
 
-
 	Given I hover over "TA Experiences"
 	And I wait for the page to load
 	Then I should see the following <links>
@@ -89,8 +87,6 @@ And I should see the following <text>
 | Diving 				|
 | Walking & Cycling 	|
 | Rail Journeys 		|
-| Private Apartments 	|
-
 
 	Given I hover over "TA Travel Extras"
 	And I wait for the page to load
@@ -100,12 +96,12 @@ And I should see the following <text>
 | Cash Passport			|
 | CommBank Awards 	    |
 
-
 Scenario: Access and confirm the 'Destinations' page
 	When I follow the link "TA Destinations"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should be on "/destinations"
+	And I should see the heading "Holiday Destinations"
 	Then I should see the following <links>
 | links |
 | Australia		|
@@ -117,27 +113,20 @@ Scenario: Access and confirm the 'Destinations' page
 | Wine Regions  |
 | Wine Regions  |
 
-	And I should see the heading "Holiday Destinations"
-
-
 Scenario: Access and check the text and URL on the 'Flights' page
 	When I follow the link "TA Flights"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should be on "/flights"
 
-And I should see the following <text>
-
+	And I should see the following <text>
 | text            	|
 | Show Flights From |
 | If you're seeking expert advice about flights, you've come to the right place.     	|
 
-When I select "Brisbane" from the "Show Flights From" selector
-And I wait for the page to load
-Then I should see "Brisbane To"
-
-#To do: add some tests for the Webform on the flights page
-
+	When I select "Brisbane" from the "Show Flights From" selector
+	And I wait for the page to load
+	Then I should see "Brisbane To"
 
 Scenario: Access and check text, URL and headings onthe 'Cruise' page
 	When I follow the link "TA Cruises"
@@ -157,7 +146,6 @@ Scenario: Access and check URL, headings, text and element selection on the 'Exp
 	And I should see "Interested in Holiday Experiences?"
 	And I should see "OUR TRAVEL BLOG"
 	And I should see "To find out more about the luxury special interest holidays and other special interest travel options available with Travel Associates call 1800 017 849 or enquire online"
-	# Given I hover over "Overwater Bungalows"
 	When I click "Honeymoon Holidays"
 	And I wait for the page to load
 	Then I should see the heading "Honeymoon Holidays"
@@ -201,5 +189,3 @@ Scenario: Go to the Travel Extras page and confirm working
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see "Contact us to tailor-make your experience."
 	And I should see "Looking for a little travel inspiration or even a gift idea? Explore our travel extras."
-
-

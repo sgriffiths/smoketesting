@@ -8,7 +8,6 @@ Background: All test to start at the homepage
 	Given I go to the page "Home Page"
 	And I should not see "Sorry, the page you were looking for could not be found."
 
-
 Scenario: Access and check the homepage links, headings and text
 	Then I should see the following <links>
 | links            		|
@@ -30,8 +29,9 @@ Scenario: Access and check the homepage links, headings and text
 | Privacy policy 	 	|
 | Site map 			 	|
 
-And I should see the heading "Cheap Flights, Holidays and Travel Deals"
-And I should see the heading "Where do you want to go?"
+# And I should see the heading "Cheap Flights, Holidays and Travel Deals"
+# And I should see the heading "Where do you want to go?"
+
 And I should see the following <text>
 
 | text   |
@@ -45,6 +45,8 @@ Scenario: Access and verify the 'about' page
 	When I follow the link "About Flight Centre Footer"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
+	And I should see the heading "Don't miss a thing!"
+	And I should see the heading "Lowest Airfare Guarantee"
 	Then I should see the following <links>
 | links |
 | About Flight Centre					|
@@ -56,16 +58,11 @@ Scenario: Access and verify the 'about' page
 | Travel Experts 						|
 | Contact Us 							|
 
-And I should see the heading "Don't miss a thing!"
-And I should see the heading "Lowest Airfare Guarantee"
-
 Scenario: Access and verify the 'contact us' page
-	When I follow the link "Contact Us"
+	When I click the "Contact Us"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
-   # When I click "Contact Us" "{link}" in the "footer" region
-
-And I should see the following <tabs>
+	And I should see the following <tabs>
 | tabs |
 | Travel Extras	|
 | Expert Teams	|
@@ -87,49 +84,71 @@ And I should see the heading "All new bookings and enquiries"
 
 Scenario: Access and check the Careers page
 	When I follow the link "Careers"
+	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
+	Then I should see the following <links>
+	| links |
+	| The Role of the Consultant |
+	| Why work for Flight Centre |
+	| Development Pathways |
+	| Our Benefits |
+	| Business Leadership Graduate Program |
+	| Recruitment Process |
+	| Frequently Asked Questions |
+	| Flight Centre Travel Academy |
+
 	And I should see the heading "Flight Centre Careers"
+	When I follow "Why work for Flight Centre"
+	And I wait for the page to load
+	And print current URL
+	And I should see "Flight Centre Foundation"
+	And I should see the heading "TESTIMONIALS"
 
-# paged moved over to drupal, need to update these tests
+Scenario: Careers -role of the consultant
+	When I follow the link "Careers"
+	When I follow "The Role of the Consultant"
+	And print current URL
+	Then I should see the heading "The role of a Travel Sales Consultant"
+	Then I should see the following <links>
+	|links|
+	| www.anewstoryeverysecond.com |
+	| Click here to view a typical day for a Travel Sales Consultant. |
 
-	# When I follow the link "Why work for Flight Centre"
-	# And I should see "Flight Centre Foundation"
-	# And I should see "Our people are our greatest asset"
+Scenario: Careers - Development Pathways
+	When I follow the link "Careers"
+	When I follow "Development Pathways"
+	And print current URL
+	Then I should see the heading "Development Pathways"
+	Then I should see "Gain nationally recognised certifications"
 
-	# When I follow the link "Becoming a Travel Sales Consultant"
-	# Then print current URL
-	# Then I should see "Introducing the Travel Industry"
+Scenario: Careers - Our Benefits
+	When I follow the link "Careers"
+	When I follow "Our Benefits"
+	And print current URL
+	Then I should see the heading "Our Benefits"
+	Then I should see "Travel Perks"
 
-	# When I follow the link "Our Recruitment Process"
-	# Then print current URL
-	# Then I should see "What do we look for?"
+Scenario: Careers - Recruitment Process
+	When I follow the link "Careers"
+	When I follow "Recruitment Process"
+	And print current URL
+	Then I should see the heading "What do we look for?"
+	Then I should see the following <links>
+	|links|
+	| Click here to view the Elements of the Recruitment Process.|
 
-	# When I follow the link "Our Culture"
-	# Then print current URL
-	# Then I should see "Health and Life Balance"
+Scenario: Careers - Frequently Asked Questions
+	When I follow the link "Careers"
+	When I follow "Frequently Asked Questions"
+	And print current URL
+	Then I should see the heading "Frequently Asked Questions"
 
-	# When I follow the link "Career Progression & Development"
-	# Then print current URL
-	# Then I should see "Welcome Aboard!"
-	# Then I should see "Travel Opportunities"
-
-	# When I follow the link "Graduate Program"
-	# Then print current URL
-	# Then I should see "What’s involved in the Business Leadership Graduate Program?"
-
-	# When I follow the link "Frequently Asked Questions"
-	# Then print current URL
-	# Then I should see "Do I need to pay for to undertake qualifications with Flight Centre?"
-
-	# When I follow the link "News & Events"
-	# Then print current URL
-	# Then I should see "Latest News"
-	# And I should see "Upcoming Events"
-
-	# When I click the "Flight Centre Travel Academy"
-	# And I wait for the page to load
-	# Then print current URL
-	# # Then I switch back to the original window
+Scenario: Careers - Flight Centre Travel Academy
+	When I follow the link "Careers"
+	When I follow "Flight Centre Travel Academy"
+	And I wait for the page to load
+	And print current URL
+	And I should see the heading "Employer partners"
 
 Scenario: Access and check the 'terms and conditions' page
 	When I follow the link "Terms & Conditions"
@@ -163,7 +182,6 @@ Scenario: Access and check the 'site map' page links
 | Weddings & Honeymoons 		|
 | Triple Treat Holidays 		|
 
-
 Scenario: 'Flights': hover over navigation links  and verify headings and elements 
 
 	Given I hover over "Flights"
@@ -171,18 +189,13 @@ Scenario: 'Flights': hover over navigation links  and verify headings and elemen
 | links |
 | Flights to Bali			|
 | Qantas					|
-| Round the world 			|
 | Airport Parking 			|
-	Then I go to the page "International Flights"
-	Then I should see the heading "International Flights"
-	And I should see the heading "Find Cheap Flights"
-
 
 	Given I hover over "Holiday Packages"
 	Then I should see the following <links>
 | links |
 | Honeymoons				|
-| Round the world			|
+| Events			|
 
 	Given I hover over "Hotels"
 	Then I should see the following <links>
@@ -193,25 +206,25 @@ Scenario: 'Flights': hover over navigation links  and verify headings and elemen
 	Given I hover over "Rail"
 	Then I should see the following <links>
 | links |
-| INTERNATIONAL RAIL	|
+| Europe				|
 | Africa    			|
 
 	Given I hover over "Tours"
 	Then I should see the following <links>
 | links |
-| TOUR TYPES 			|
+| Fiji Tours			|
 | Coach Tours    		|
 
 	Given I hover over "Cruises"
 	Then I should see the following <links>
 | links |
-| CRUISE SHIPS 			|
+| Princess Cruises		|
 | Life on board    		|
 
 	Given I hover over "Extras"
 	Then I should see the following <links>
 | links |
-| GIFT CARDS 				|
+| Travel Insurance			|
 | Hertz Car Hire    		|
 
 	Given I hover over "Destinations"
@@ -227,31 +240,27 @@ Scenario: 'Flights': hover over navigation links  and verify headings and elemen
 | TV Ads         		|
 
 Scenario: Perform a search and receive results
-
 	Given I fill in the "Search Field" field with "New York"
-	Then I click the "Search Button"
+	Then I click the "Top Search Button"
 	Then I should see "Results"
 	And I should see "Guides"
 
-Scenario: Search for a store and confirm the details
+## Currently not available on acquiatest ##
 
-	Given I fill in the "Postcode" field with "4154"
-	And I click the "Find Store Button"
-	And I wait for the page to load
-	Then I should see the heading "Flight Centre Manly West"
-	When I hover over "Flight Centre Manly West"
-	And I click the "Flight Centre Manly West"
-	Then I should see "Mon: 9:00am - 5:30pm"
-	Given I click the "Flight Centre Wynnum Plaza"
-	Then I should see "Distance: 3.6km"
+# Scenario: Search for a store and confirm the details
+# 	Given I click "Your nearest Flight Centre"
+# 	Given I fill in the "Postcode" field with "4154"
+# 	And I click the "Find Store Button"
+# 	And I wait for the page to load
+# 	Then I should see the heading "Flight Centre Manly West"
+# 	When I hover over "Flight Centre Manly West"
+# 	And I click the "Flight Centre Manly West"
+# 	Then I should see "Mon: 9:00am - 5:30pm"
+# 	Given I click the "Flight Centre Wynnum Plaza"
+# 	Then I should see "Distance: 3.6km"
 
-Scenario: Cheap Flights, Holidays and Travel Deals
-	Given I click the "Domestic Flights Link"
-	Then I should see "Brisbane »"
-	When I click the "About Flight Centre"
-	Then I should see the heading "Lowest Airfare Guarantee"
-
-
-
-
-
+# Scenario: Cheap Flights, Holidays and Travel Deals
+# 	Given I click the "Domestic Flights Link"
+# 	Then I should see "Brisbane »"
+# 	When I click the "About Flight Centre"
+# 	Then I should see the heading "Lowest Airfare Guarantee"

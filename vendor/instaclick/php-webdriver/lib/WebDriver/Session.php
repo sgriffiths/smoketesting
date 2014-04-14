@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2004-2013 Facebook. All Rights Reserved.
+ * Copyright 2004-2014 Facebook. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ namespace WebDriver;
  *
  * @method string window_handle() Retrieve the current window handle.
  * @method array window_handles() Retrieve the list of all window handles available to the session.
- * @method string getUrl() Retrieve the URL of the current page
+ * @method string url() Retrieve the URL of the current page
  * @method void postUrl($jsonUrl) Navigate to a new URL
  * @method void forward() Navigates forward in the browser history, if possible.
  * @method void back() Navigates backward in the browser history, if possible.
@@ -62,6 +62,11 @@ namespace WebDriver;
  */
 final class Session extends Container
 {
+    /**
+     * @var array
+     */
+    private $capabilities = null;
+
     /**
      * {@inheritdoc}
      */
@@ -136,9 +141,13 @@ final class Session extends Container
      */
     public function capabilities()
     {
-        $result = $this->curl('GET', '');
+        if ( ! isset($this->capabilities)) {
+            $result = $this->curl('GET', '');
 
-        return $result['value'];
+            $this->capabilities = $result['value'];
+        }
+
+        return $this->capabilities;
     }
 
     /**
@@ -219,7 +228,7 @@ final class Session extends Container
      * - $session->window($name) - set focus
      * - $session->window($window_handle)->method() - chaining
      *
-     * @return \WebDriver\AbstractWebDriver
+     * @return \WebDriver\Window|\WebDriver\Session
      */
     public function window()
     {
