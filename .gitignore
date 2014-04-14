@@ -1,5 +1,5 @@
 selenium-server-standalone-2.40.0.jar
-vendor/*
+vendor/
 Fail.*
 .DS_Store
 chromedriver*
@@ -10,6 +10,7 @@ console output/
 drupalfeaturecontext.php
 features/mytest.feature
 sauce.yml
-*vendor
+vendor
 sc-4.0-osx/
 PhantomCSS
+Composer
