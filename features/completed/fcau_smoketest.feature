@@ -116,6 +116,7 @@ Scenario: Careers -role of the consultant
 
 Scenario: Careers - Development Pathways
 	When I follow the link "Careers"
+	And I wait for the page to load
 	When I follow "Development Pathways"
 	And print current URL
 	Then I should see the heading "Development Pathways"
@@ -123,6 +124,7 @@ Scenario: Careers - Development Pathways
 
 Scenario: Careers - Our Benefits
 	When I follow the link "Careers"
+	And I wait for the page to load
 	When I follow "Our Benefits"
 	And print current URL
 	Then I should see the heading "Our Benefits"
@@ -130,6 +132,7 @@ Scenario: Careers - Our Benefits
 
 Scenario: Careers - Recruitment Process
 	When I follow the link "Careers"
+	And I wait for the page to load
 	When I follow "Recruitment Process"
 	And print current URL
 	Then I should see the heading "What do we look for?"
@@ -139,12 +142,14 @@ Scenario: Careers - Recruitment Process
 
 Scenario: Careers - Frequently Asked Questions
 	When I follow the link "Careers"
+	And I wait for the page to load
 	When I follow "Frequently Asked Questions"
 	And print current URL
 	Then I should see the heading "Frequently Asked Questions"
 
 Scenario: Careers - Flight Centre Travel Academy
 	When I follow the link "Careers"
+	And I wait for the page to load
 	When I follow "Flight Centre Travel Academy"
 	And I wait for the page to load
 	And print current URL

@@ -1,0 +1,9 @@
+#thetravelclub.co.uk
+
+Privacy Policy: "a:contains('Privacy policy')"
+Contact Us: "a:contains('Contact us')"
+Terms Conditions: "a:contains('*Terms conditions')"
+
+Holidays: "#menu-463-1 > a"
+Flights: "#menu-462-1 > a"
+Special Offers: "#menu-535-1 > a"

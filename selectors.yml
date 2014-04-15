@@ -138,6 +138,14 @@ Holiday Type: "#edit-field-product-tags-tid"
 First Holiday Product: ".product-details"
 International Tab: "#edit-destination-2"
 
+#FCL
+
+About Us: "#menu-2226-1 > a"
+Our Brands: "#menu-4366-1 > a"
+Contact Us: "#menu-2271-1 > a"
+Investors & Media: "#menu-2336-1 > a"
+
+
 
 #Testing
 Search Button: "#gbqfb"

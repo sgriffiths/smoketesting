@@ -131,3 +131,30 @@ m-escapetravel.com.au:
       browser_name: firefox
       selenium2:
       goutte: ~
+
+studentflights.com.au:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.studentflights.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+flightcentrelimited.com:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.flightcentrelimited.com
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+thetravelclub.co.uk:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.thetravelclub.co.uk
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~

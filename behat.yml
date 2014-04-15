@@ -179,3 +179,37 @@ m-escapetravel.com.au:
       browser_name: firefox
       selenium2:
       goutte: ~
+
+studentflights.com.au:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://studentflights.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+flightcentrelimited.com:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://flightcentrelimited.com
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+
+thetravelclub.co.uk:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://thetravelclub.co.uk
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
