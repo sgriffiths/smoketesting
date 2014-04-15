@@ -111,6 +111,7 @@ Scenario: Go to each of the Nav bar links and check they link to the correct pag
 	And I should be on "/holidays"
 	Then I should see the heading "Creating unforgettable holidays"
 	And I should see "Beach holiday"
+	
 
 
 # Scenario: Confirm the superfish top menu dropdown links and login page access
