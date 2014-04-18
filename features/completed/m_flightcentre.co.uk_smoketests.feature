@@ -128,7 +128,9 @@ Scenario: Access and verify the 'Holiday Deals' and subsequent sub pages
 	And I wait for the page to load
 
 	Given I click the "By Destination"
+	And I wait for the page to load
 	Then I click "New Zealand"
+	And I wait for the page to load
 	Then I should see the heading "New Zealand Holidays"
 	And I should see the heading "Auckland"
 	Then I click "« Back"
@@ -141,6 +143,7 @@ Scenario: Access and verify the 'Holiday Deals' and subsequent sub pages
 	And I wait for the page to load
 
 	Given I click the "By Budget"
+	And I wait for the page to load
 	Then I click "£1000 plus"
 	Then I should see the heading "Holiday Deals £1000+"
 
@@ -166,22 +169,26 @@ Scenario: Access and verify the 'City Break Deals' and subsequent sub pages
 
 
 	Given I click the "Europe City Deals"
+	And I wait for the page to load
 	Then I should be on "/holidays/deals/europe"
 	Then I click "« Back"
 	And I wait for the page to load
 
 	Given I click the "USA City Deals"
+	And I wait for the page to load
 	Then I click "New York"
 	And I should see the heading "New York"
 	Then I click "« Back"
 	And I wait for the page to load
 
 	Given I click the "Dubai Deals"
+	And I wait for the page to load
 	And I should see "DEAL EXPIRES"
 	Then I click "« Back"
 	And I wait for the page to load
 
 	Given I click the "Far East Deals"
+	And I wait for the page to load
 	Then I click "Hong Kong"
 	And I wait for the page to load
 	Then I should be on "/holidays/deals/hong-kong"
@@ -198,6 +205,7 @@ Scenario: Confirm the social link are working
 
 	Given I click "Facebook"
 	And print current URL
+	And I wait for the page to load
 	Then I should see "Every Destination. Every Airline"
 		Then I move backward one page
 		And I wait for the page to load
@@ -231,6 +239,7 @@ Scenario: Check the email form
 	|No. of passengers |
 
 	When I click the "Login"
+	And I wait for the page to load
 	Then I should see "This field is required"
 
 Scenario: Access and confirm content on the footer links
@@ -245,10 +254,12 @@ Scenario: Access and confirm content on the footer links
 
 	Then I should see "The Flight Centre Story"
 	Then I click "« Back"
+	And I wait for the page to load
 
 	Given I click "Terms & Conditions"
 	Then I should see the heading "FLIGHT CENTRE (UK) LTD BOOKING CONDITIONS"
 	Then I click "« Back"
+	And I wait for the page to load
 
 	Given I click "Privacy Policy"
 	Then I should see the heading "What is personal information?"
@@ -259,6 +270,7 @@ Scenario: Access and confirm content on the footer links
 	| Customer Service Department |
 	| click here |
 	Then I click "« Back"
+	And I wait for the page to load
 
 Scenario: Stores search 
 	Given I click the "Stores"

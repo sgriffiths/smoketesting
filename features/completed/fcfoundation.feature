@@ -1,4 +1,4 @@
-@fcfoundation @javascript @smoke
+@fcfcau @javascript @smoke
 Feature: Perform smoke tests on the foundation production and Acquia Test sites
 
 	In order to verify that the site is up and responsive

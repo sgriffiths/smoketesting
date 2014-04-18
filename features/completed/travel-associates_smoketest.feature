@@ -1,4 +1,4 @@
-@smoke @travelassociates @javascript
+@smoke @t @javascript
 Feature: smoke test the Travel-Associates production site
 	In order to verify that the site is up and responsive
 	As a website user
@@ -18,7 +18,6 @@ Scenario: Access and check the 'homepage' links, headings, text and phone number
 | Blog             	    |
 | Contact 	   		    |
 | Travel Extras		    |
-| Specials			    |
 | Subscribe			    |
 | Email us 			    |
 | Find a store 			|
@@ -126,7 +125,7 @@ Scenario: Access and check the text and URL on the 'Flights' page
 
 	When I select "Brisbane" from the "Show Flights From" selector
 	And I wait for the page to load
-	Then I should see "Brisbane To"
+	Then I should see "BRISBANE TO"
 
 Scenario: Access and check text, URL and headings onthe 'Cruise' page
 	When I follow the link "TA Cruises"
@@ -141,12 +140,12 @@ Scenario: Access and check URL, headings, text and element selection on the 'Exp
 	When I follow the link "TA Experiences"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
-	Then I should be on "/holiday-experiences/holiday-experiences"
+	Then I should be on "/holiday-experiences"
 	And I should see the heading "Holiday Experiences"
 	And I should see "Interested in Holiday Experiences?"
 	And I should see "OUR TRAVEL BLOG"
 	And I should see "To find out more about the luxury special interest holidays and other special interest travel options available with Travel Associates call 1800 017 849 or enquire online"
-	When I click "Honeymoon Holidays"
+	Then I go to the page "Honeymoon Holidays"
 	And I wait for the page to load
 	Then I should see the heading "Honeymoon Holidays"
 	And I should see the heading "What's on offer..."

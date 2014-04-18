@@ -1,4 +1,4 @@
-@ctgit @javascript @smoke
+@ctus @javascript @smoke
 Feature: Perform smoke tests on the corporatetraveller.us production and Acquia Test sites
 
 	In order to verify that the site is up and responsive

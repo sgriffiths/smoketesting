@@ -1,4 +1,4 @@
-@corporatetravellerau @javascript @smoke
+@ctau @javascript @smoke
 Feature: Perform smoke tests on the corporatetraveller.com.au site
 	In order to verify that the site is up and running
 	As a regression tester

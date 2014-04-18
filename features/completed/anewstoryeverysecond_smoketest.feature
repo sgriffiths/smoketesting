@@ -1,4 +1,4 @@
-@anewstoryeverysecond @smoke @javascript
+@nses @smoke @javascript
 Feature: To confirm the stability of the 'anewstoryeverysecond' website
   In order to see if the site is ready for regression testing
   As a user of the site

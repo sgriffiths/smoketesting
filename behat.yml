@@ -22,6 +22,9 @@ default:
       region_map:
         footer: "#footer"
         left sidebar: ".region-sidebar-first"
+        bottom: ".region-bottom"
+        header: "#header"
+        navigation: "#navigation"
 
 flightcentre:
   paths:
@@ -55,7 +58,7 @@ chrome:
 sauce:
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: http://fcfoundation.org.au
+      base_url: http://travelmoneyoz.com
       selenium2:
        browser: firefox
        wd_host: scottyg:57414aef-4c65-45cd-b2ad-e935f99bfa9e@ondemand.saucelabs.com/wd/hub
@@ -202,6 +205,38 @@ thetravelclub.co.uk:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://thetravelclub.co.uk
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+
+travelmoneyoz:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://travelmoneyoz.com
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+
+fcza:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.flightcentre.co.za
       javascript_session: 'selenium2'
       browser_name: firefox
       selenium2:

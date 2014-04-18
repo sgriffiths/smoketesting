@@ -1,9 +1,24 @@
 #thetravelclub.co.uk
 
 Privacy Policy: "a:contains('Privacy policy')"
-Contact Us: "a:contains('Contact us')"
+Footer Contact Us: "a:contains('Contact us')"
 Terms Conditions: "a:contains('*Terms conditions')"
+Club Giveaways: "a:contains('here')"
 
 Holidays: "#menu-463-1 > a"
 Flights: "#menu-462-1 > a"
 Special Offers: "#menu-535-1 > a"
+Excursions: "#menu-532-1 > a"
+Club Perks: "#menu-533-1 > a"
+About Us: "#menu-534-1 > a"
+Contact Us: "#menu-542-1 > a"
+Join Now: "#menu-3237-1 > a"
+
+# travelmoneyoz
+
+Popup Close: "#habla_sizebutton_a"
+Chat with us: "#habla_oplink_a"
+
+# FCZA
+
+Destinations: "a:contains('Destinations')"

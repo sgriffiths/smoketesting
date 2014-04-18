@@ -1,5 +1,5 @@
   <?php
-
+require_once 'PHPUnit/Extensions/Selenium2TestCase.php';
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext,
@@ -8,9 +8,9 @@ use Behat\MinkExtension\Context\MinkContext,
 use Drupal\DrupalExtension\Context\DrupalContext,
     Drupal\DrupalExtension\Event\EntityEvent;
 
-// use Behat\Mink\Mink,
-//     Behat\Mink\Session,
-//     Behat\Mink\Driver\Selenium2Driver;
+use Behat\Behat\Context\ExtendedContextInterface;
+
+use Sauce\Sausage\WebDriverTestCase;
 
 
 class FeatureContext extends DrupalContext
@@ -406,6 +406,63 @@ public function iScrollDownThePage() {
     $link->click();
 
    }
+  /**
+  *
+  *@Then /^this is how we click a link$/
+  */
+  public function thisIsHowWeClickaLink(){
+    $link = $this->getSession()->getPage()->find('css', '#edit-submit');
+    if (empty($link)) {
+      throw new Exception("No link found");
+    }
+  $link->click();
+  sleep(1);
+  }
+  // /**
+  //  * @Given /^I wait for the "([^"]*)" to appear$/
+  //  */
+  //   public function iWaitForTheToAppear($text, \PHPUnit_Extensions_Selenium2TestCase_Element $element = NULL,
+  //       $timeout = 10)
+  //   {
+  //       $element = $element ?: $this->byCssSelector('body');
+  //       $test = function() use ($element, $text) {
+  //           $el_text = str_replace("\n", " ", $element->text());
+  //           return strpos($el_text, $text) !== false;
+  //       };
+  //       $this->spinWait("Text $text never appeared!", $test, array(), $timeout);
+  //   }
+
+  /**
+   * @Given /^I wait for the "([^"]*)" to appear$/
+   */
+public function spin ($lambda, $wait = 60){
+    $this->spin(function($context) {
+    $context->getSession()->getPage()->findById('example')->click();
+    return true;
+    });
+
+    for ($i = 0; $i < $wait; $i++)
+    {
+        try {
+            if ($lambda($this)) {
+                return true;
+            }
+        } catch (Exception $e) {
+            // do nothing
+        }
+
+        sleep(1);
+    }
+
+    $backtrace = debug_backtrace();
+
+    throw new Exception(
+        "Timeout thrown by " . $backtrace[1]['class'] . "::" . $backtrace[1]['function'] . "()\n" .
+        $backtrace[1]['file'] . ", line " . $backtrace[1]['line']
+    );
+}
+
+
     // /**
     //  * @Given /^I switch to window "([^"]*)"$/
     //  */

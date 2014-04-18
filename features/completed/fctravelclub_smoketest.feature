@@ -1,4 +1,4 @@
-@fctravelclub @javascript @smoke
+@tcau @javascript @smoke
 Feature: Perform smoke tests on the fctravelclub production and Acquia Test sites
 
 	In order to verify that the site is up and responsive
