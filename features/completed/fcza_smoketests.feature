@@ -200,7 +200,7 @@ Scenario: Access and check the homepage links for the Destinations menu item
 # | Weddings & Honeymoons 		|
 # | Triple Treat Holidays 		|
 
-# Scenario: 'Flights': hover over navigation links  and verify headings and elements 
+# Scenario: 'Flights': hover over navigation links  and verify headings and elements
 
 # 	Given I hover over "Flights"
 # 	Then I should see the following <links>

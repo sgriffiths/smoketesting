@@ -25,6 +25,7 @@ default:
         bottom: ".region-bottom"
         header: "#header"
         navigation: "#navigation"
+        footer links: "#footer-links-row"
 
 corporate-traveller-au:
   extensions:
@@ -54,7 +55,7 @@ fcmtravel:
       goutte: ~
 
 
-anewstoryeverysecond:
+nses:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.anewstoryeverysecond.com/
@@ -187,7 +188,7 @@ travelmoneyoz:
 fcza:
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: http://www.flightcentre.co.za
+      base_url: http://acquiatest.flightcentre.co.za
       javascript_session: 'selenium2'
       browser_name: firefox
       selenium2:
@@ -199,3 +200,40 @@ fcza:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
+sfau:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.studentflights.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+sfnz:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.studentflights.co.nz
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer links: "#footer-links-row"
+        seo links: "#seo-links-row"

@@ -215,7 +215,7 @@ Scenario: Confirm the social link are working
 	And I should see "FOLLOWING"
 		Then I move backward one page
 		And I wait for the page to load
-	Given I click "Google +"	
+	Given I click "Google +"
 	And print current URL
 	Then I should see "Join Google+ to follow Flight Centre UK."
 		Then I move backward one page
@@ -248,7 +248,7 @@ Scenario: Access and confirm content on the footer links
 	Then I should be on "/?mobile-false"
 	Then I move backward one page
 	And I wait for the page to load
-	
+
 	Given I click "About us"
 	And I wait for the page to load
 
@@ -272,7 +272,7 @@ Scenario: Access and confirm content on the footer links
 	Then I click "« Back"
 	And I wait for the page to load
 
-Scenario: Stores search 
+Scenario: Stores search
 	Given I click the "Stores"
 	Then I should see the heading "Find Your Local Store"
 	When I fill in the "Location" field with "Wombourne"

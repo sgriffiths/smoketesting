@@ -22,3 +22,11 @@ Chat with us: "#habla_oplink_a"
 # FCZA
 
 Destinations: "a:contains('Destinations')"
+
+#SFAU
+
+Search: "#db-search"
+Go: "#subscribeBtn > input"
+Bali: ".pane-block-29 li > a:contains('Bali')"
+Europe: ".pane-block-29 li > a:contains('europe')"
+Search: ".destination-search"

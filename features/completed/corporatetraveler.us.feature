@@ -6,13 +6,13 @@ Feature: Perform smoke tests on the corporatetraveller.us production and Acquia 
 	I need to go through and check various pages and elements
 
 Background: All tests start at the homepage
-     Given I go to the page "Corporate Traveler Home Page" 
+     Given I go to the page "Corporate Traveler Home Page"
 
 Scenario: Check the homepage items
 	And I should see "Business travel experts who"
 	And I should see the following <links>
 	| links |
-	| Increased efficiency| 
+	| Increased efficiency|
 	| Policy Compliance   |
 	| Reporting 		  |
 	| Traveler tracking   |
@@ -71,12 +71,12 @@ Scenario: Confirm the superfish top menu dropdown links and login page access
 
 	Then I click the "Top Menu Contact Us"
 	And I wait for the page to load
-	Then I should see the heading "Inquire"
-	And I should see the following <text>
-	|text|
-	|First Name|
-	|Last Name|
-	|Phone|
+	#Then I should see the heading "Inquire"
+	#And I should see the following <text>
+	#|text|
+	#|First Name|
+	#|Last Name|
+	#|Phone|
 
 	When I go to the page "Emergency"
 	And I wait for the page to load
@@ -136,7 +136,7 @@ Scenario: Go to the 'Resources' page and confirm the sub links, page headings an
 	|links|
 	| Business class flights |
 	| Business class accommodation |
-	
+
 Scenario: Go to the 'About' page and confirm the sub links, page headings and sidebar content
 	When I click the "About"
 	Then print current URL

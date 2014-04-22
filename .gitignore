@@ -1,5 +1,7 @@
 selenium-server-standalone-2.40.0.jar
 vendor/
+vendor/**/**/**/**
+vendor/**
 Fail.*
 .DS_Store
 chromedriver*
@@ -14,5 +16,5 @@ vendor
 sc-4.0-osx/
 PhantomCSS
 Composer*
-.html
+*.html
 Testing/

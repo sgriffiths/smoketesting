@@ -3,11 +3,11 @@ TA Home Page: "/"
 International Flights: "/flights/international-flights"
 ET Home Page: "/"
 Blog: "/holiday-ideas"
-Careers: "/company/careers/overview"	
+Careers: "/company/careers/overview"
 Site Map: "/home/sitemap/sitemap"
 Terms and Conditions: "/company/policies/conditions"
 anewstoryeverysecond Homepage: "/"
-FCM Travel Home Page: 
+FCM Travel Home Page:
 #corp traveller au
 Corporate Traveller Home Page: "/"
 Corporate Traveler Home Page: "/"
@@ -23,6 +23,7 @@ Fctravelclub: "/"
 Mfcau Home Page: "/"
 Metau Home Page: "/"
 Sfau Home Page: "/"
+Sfau Destinations Page: "/destinations"
 Product: "/product/"
 FCL Home Page: "/"
 TCUK Home Page: "/"
@@ -30,7 +31,9 @@ Honeymoon Holidays: "/holiday-experiences/honeymoon-holidays"
 TMOZ Home Page: "/"
 FCZA Home Page: "/"
 FCZA Destinations Page: "/world-travel"
-
-
+Hawaii: "/destinations/Hawaii"
+Las Vegas: "/world-travel/las-vegas"
+Sfnz: "/"
+Sfnz World Travel Home Page: "/world-travel"
 #Testing
 Google: "/"

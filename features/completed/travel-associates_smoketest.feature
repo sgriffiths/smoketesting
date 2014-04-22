@@ -157,7 +157,6 @@ Scenario: Access the Blog page and check for content
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see "Our Travel Blog"
 	And I should see "Older posts"
-	And I should see "Keep reading"
 
 Scenario: Go to the contact us page and confirm working
 	Given I follow the link "TA Contact"
@@ -179,7 +178,7 @@ Scenario: Go to the contact us page and confirm working
 | Any further details? |
 | First Name 		   |
 | Last Name 		   |
-| Phone 			   |		
+| Phone 			   |
 | Post Code 		   |
 
 Scenario: Go to the Travel Extras page and confirm working

@@ -1,4 +1,4 @@
-  <?php
+-  <?php
 require_once 'PHPUnit/Extensions/Selenium2TestCase.php';
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
@@ -332,7 +332,7 @@ public function iScrollDownThePage() {
         throw new Exception("The page (" . $this->getSession()->getCurrentUrl() .
          ") has less than " . $count . " records");
     }
-  } 
+  }
 
   /**
    * Function to get the array of records from the current view listing
@@ -369,7 +369,7 @@ public function iScrollDownThePage() {
     $Result = $this->getSession()->getPage()->find("css", "#content > ol > li:nth-child(1)");
     if (empty($Result)) {
       throw new Exception("The page contains no results");
-      
+
     }
       $result->click();
     // Wait for the page to load.
@@ -394,7 +394,7 @@ public function iScrollDownThePage() {
    /**
    *
    * @Then /^I click on the link$/
-   */ 
+   */
 
    public function clickonthelink(){
     $link = $this->getSession()->getPage()->find("css", "#quicktabs-tab-product_tabs-1");
@@ -462,7 +462,206 @@ public function spin ($lambda, $wait = 60){
     );
 }
 
+  /**
+   * Checks links in a homepage area
+   *
+   * @Given /^I should see the following <(?:links|tabs|options|text)> in "([^"]*)" area$/
+   *
+   * @param string $region
+   *   region on homepage
+   * @param object $table
+   *   TableNode
+   */
+  public function iShouldSeeTheFollowingLinksInArea($region, TableNode $table) {
+    foreach ($table->getHash() as $content) {
+      $keys = array_keys($content);
+      $key = str_replace('s', '', $keys[0]);
+      $this->iShouldSeeInArea($key, $content[$keys[0]], $region, true);
+    }
+  }
 
+    /**
+   * Find given type in specific region on the page
+   *
+   * @Then /^I (?:should |)see the "([^"]*)" "([^"]*)" in "([^"]*)" area$/
+   *
+   * @param string $type
+   *   text/link/option/count/tab/power drupal
+   * @param string $content
+   *   text/link
+   * @param string $region
+   *   region on homepage
+   * @param boolean $find
+   *   should see/should not see
+   * @param boolean $count_param
+   *   count
+   */
+  public function iShouldSeeInArea($type = 'text', $content, $region, $find = true, $count_param = null) {
+    // Find the region
+    $region_ele = $this->getSession()->getPage()->find('region', $region);
+    if (empty($region_ele)) {
+      throw new Exception('The region "' . $region . '" is not found at ' . $this->getSession()->getCurrentUrl() );
+    }
+    switch ($type) {
+      // Normal text(includes link labels as well)
+      case 'text':
+        if (false === strpos($region_ele->getText(), $content)) {
+          if ($find) {
+            throw new Exception('The text "' . $content . '" was not found in the "' . $region . '" region of the page');
+          }
+        }
+        else {
+          if (!$find) {
+            throw new Exception('The text "' . $content . '" was found in the "' . $region . '" region of the page, but it should not be');
+          }
+        }
+        break;
+      // Hyperlinks
+      case 'link':
+        $a_ele = $region_ele->findLink($content);
+        if (empty($a_ele)) {
+          if ($find) {
+            throw new Exception('The link "' . $content . '" was not found in the "' . $region . '" region of the page');
+          }
+        }
+        else {
+          // Look for exact match
+          $is_exact = ($region_ele->getText() === $content);
+          if (!$find && $is_exact) {
+            throw new Exception('The link "' . $content . '" was found in the "' . $region . '" region of the page, but it should not be');
+          }
+        }
+        break;
+      // Radio buttons.
+      case 'option':
+        $radio_ele = $region_ele->findAll('xpath', '//input[@type="radio"]');
+        if (empty($radio_ele)) {
+          throw new Exception('The option "' . $content . '" is not found in the "' . $region . '" region of the page');
+        }
+        $found = false;
+        foreach ($radio_ele as $radio) {
+          if ($content == $radio->getParent()->getText()) {
+            $found = true;
+            if (!$find) {
+              throw new Exception('The option "' . $content . '" is found in the "' . $region . '" region of the page but it should not be');
+            }
+            break;
+          }
+        }
+        if (!$found && $find) {
+          throw new Exception('The option "' . $content . '" is not found in the "' . $region . '" region of the page');
+        }
+        break;
+      // Tabs (bottom header/bottom content)
+      case 'tab':
+        $a_ele = $region_ele->findAll('xpath', '//ul/li/a');
+        if (empty($a_ele)) {
+          throw new Exception('The tab "' . $content . '" is not found in the "' . $region . '" region of the page');
+        }
+        $found = false;
+        foreach ( $a_ele as $a) {
+          if ($content == $a->getText()) {
+            $found = true;
+            if (!$find) {
+              throw new Exception('The tab "' . $content . '" is found in the "' . $region . '" region of the page but it should not be');
+            }
+            break;
+          }
+        }
+        if (!$found && $find) {
+           throw new Exception('The tab "' . $content . '" is not found in the "' . $region . '" region of the page');
+        }
+        break;
+      // Right content count for different links
+      case 'count':
+        $td_ele = $region_ele->find('xpath', '//table[@class="front-current-activity"]//tr//td//a[text()="' . $content . '"]');
+        if (empty($td_ele)) {
+          throw new Exception('"' . $content . '" is not found in the "' . $region . '" region of the page');
+        }
+        $count_ele = $td_ele->getParent()->getParent()->find('css', 'td');
+        if(empty($count_ele)) {
+          throw new Exception('Count for "' . $content . '" is not found in the "' . $region . '" region of the page');
+        }
+        $count = (int) str_replace(',','', $count_ele->getText());
+        if (trim($count) == "") {
+          throw new Exception('"' . $content . '" count is not found');
+        }
+        if ($count < $count_param) {
+          throw new Exception('"' . $content . '" count is less than "' . $count_param . '"');
+        }
+        break;
+      // people/country/language count
+      case 'power drupal':
+        $div_ele = $region_ele->find('css', 'div#front-drupal-stats');
+        if (empty($div_ele)) {
+          throw new Exception('"power Drupal" container div is not found');
+        }
+        $count_param = str_replace(',', '', $count_param);
+        $text = str_replace(',', '', $div_ele->getText());
+        preg_match("/\d+ $content/i", $text, $match);
+        if (empty($match[0]) || (!empty($match[0]) && ((int) (str_replace(' ' . $text, '', $match[0]))) < $count_param)) {
+          throw new Exception('"' . $content . '" count in "power Drupal" is less than ' . $count_param);
+        }
+        break;
+      // Images
+      case 'image':
+        switch ($content) {
+          // Site made with drupal image
+          case 'site made with drupal':
+            $img_ele = $region_ele->find('xpath', '//div[@class="things-we-made-wrapper"]//a//img');
+            if (empty($img_ele)) {
+              throw new Exception('"' . ucfirst($content) . '" image is not found in the "' . $region . '" region of the page');
+            }
+            break;
+          // Advertisement image - can be an iframe/image with links/links
+          case 'advertisement':
+
+            // Advertisement iFrame is loaded via javascript, so test needs to wait
+            // until iFrame actually loaded.
+            $this->getSession()->wait(10, "jQuery('.block-google-admanger iframe').length");
+
+            $iframe_ele = $region_ele->find('css', '.block-google-admanger iframe');
+            if (!empty($iframe_ele)) {
+              $this->getSession()->switchToIFrame($iframe_ele->getAttribute('name'));
+              $a = $this->getSession()->getPage()->findAll('css', 'a');
+              if (empty($a)) {
+                $this->getSession()->switchToIFrame();
+                throw new Exception('"' . ucfirst($content) . '" is not found in the "' . $region . '" region of the page');
+              }
+              $this->getSession()->switchToIFrame();
+            }
+            else {
+              $iframe_ele = $region_ele->findAll('css', ' a');
+              if (empty($iframe_ele)) {
+                throw new Exception('"' . ucfirst($content) . '" is not found in the "' . $region . '" region of the page');
+              }
+            }
+            break;
+          // Drupal banner - as it is a background image, check hyperlink
+          case 'drupal banner':
+            $a_ele = $region_ele->findLink("Drupal");
+            if (empty($a_ele)) {
+              throw new Exception('Drupal banner is not found in the "' . $region . '" region of the page');
+            }
+            else {
+              $link = $a_ele->getAttribute('href');
+              $parts = explode('drupal.org', $link);
+              $with_selenium = !empty($parts[1]) && $parts[1] == '/';
+              if ('/' != $link && !$with_selenium) {
+                throw new Exception('Drupal banner in "' . $region . '" area is not linked to homepage');
+              }
+            }
+            break;
+          default:
+            throw new Exception('"' . ucfirst($content) . '" is not found in the "' . $region . '" region of the page');
+            break;
+        }
+        break;
+      default:
+        throw new Exception('The type "' . $type . '" is not implemented.' );
+        break;
+    }
+  }
     // /**
     //  * @Given /^I switch to window "([^"]*)"$/
     //  */

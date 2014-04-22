@@ -25,6 +25,8 @@ default:
         bottom: ".region-bottom"
         header: "#header"
         navigation: "#navigation"
+        megamenu: "#megamenu"
+        header subscribe panel: "#header-subscribe-panel"
 
 flightcentre:
   paths:
@@ -54,7 +56,7 @@ chrome:
       browser_name: chrome
       selenium2:
       goutte: ~
- 
+
 sauce:
   extensions:
     Behat\MinkExtension\Extension:
@@ -72,7 +74,7 @@ sauce_ct:
      goutte:
      selenium2:
         browser: firefox
-        wd_host: 
+        wd_host:
         capabilities: {  "platform": "Windows 7" , "version": "21" , "name":"corporatetraveller" }
 
 travel-associates:
@@ -93,7 +95,7 @@ escape-travel:
       selenium2:
       goutte: ~
 
-anewstoryeverysecond:
+nses:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://anewstoryeverysecond.com/
@@ -138,7 +140,7 @@ corporate-traveller-nz:
       selenium2:
       goutte: ~
 
-corporate-traveler-us:
+ctus:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://corporatetraveler.us
@@ -165,12 +167,12 @@ fctravelclub:
       selenium2:
       goutte: ~
 
-m-flightcentre.co.uk:
+mfcuk:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://m.flightcentre.co.uk
       javascript_session: 'selenium2'
-      browser_name: firefox
+      browser_name: chrome
       selenium2:
       goutte: ~
 
@@ -216,7 +218,6 @@ thetravelclub.co.uk:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-
 travelmoneyoz:
   extensions:
     Behat\MinkExtension\Extension:
@@ -232,7 +233,6 @@ travelmoneyoz:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-
 fcza:
   extensions:
     Behat\MinkExtension\Extension:
@@ -248,3 +248,47 @@ fcza:
       timeout: 30
       contexts:
         UIBusinessSelector: ~
+sfau:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.studentflights.com.au
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer links: "#footer-links-row"
+        seo links: "#seo-links-row"
+sfnz:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.studentflights.co.nz
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer links: "#footer-links-row"
+        seo links: "#seo-links-row"
