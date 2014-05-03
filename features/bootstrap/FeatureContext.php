@@ -1,4 +1,6 @@
--  <?php
+<?php
+date_default_timezone_set("Australia/Brisbane");
+
 require_once 'PHPUnit/Extensions/Selenium2TestCase.php';
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
@@ -147,7 +149,7 @@ class FeatureContext extends DrupalContext
   /**
    * @Then /^I (?:|should )see the following <heading>$/
    */
-  public function iShouldSeeTheFollowingHeading($heading) {
+  public function iShouldSeeTheFollowingHeading(TableNode $heading) {
     $element = $this->getSession()->getPage();
     foreach (array('h1', 'h2', 'h3', 'h4', 'h5', 'h6') as $tag) {
       $results = $element->findAll('css', $tag);
@@ -418,49 +420,6 @@ public function iScrollDownThePage() {
   $link->click();
   sleep(1);
   }
-  // /**
-  //  * @Given /^I wait for the "([^"]*)" to appear$/
-  //  */
-  //   public function iWaitForTheToAppear($text, \PHPUnit_Extensions_Selenium2TestCase_Element $element = NULL,
-  //       $timeout = 10)
-  //   {
-  //       $element = $element ?: $this->byCssSelector('body');
-  //       $test = function() use ($element, $text) {
-  //           $el_text = str_replace("\n", " ", $element->text());
-  //           return strpos($el_text, $text) !== false;
-  //       };
-  //       $this->spinWait("Text $text never appeared!", $test, array(), $timeout);
-  //   }
-
-  /**
-   * @Given /^I wait for the "([^"]*)" to appear$/
-   */
-public function spin ($lambda, $wait = 60){
-    $this->spin(function($context) {
-    $context->getSession()->getPage()->findById('example')->click();
-    return true;
-    });
-
-    for ($i = 0; $i < $wait; $i++)
-    {
-        try {
-            if ($lambda($this)) {
-                return true;
-            }
-        } catch (Exception $e) {
-            // do nothing
-        }
-
-        sleep(1);
-    }
-
-    $backtrace = debug_backtrace();
-
-    throw new Exception(
-        "Timeout thrown by " . $backtrace[1]['class'] . "::" . $backtrace[1]['function'] . "()\n" .
-        $backtrace[1]['file'] . ", line " . $backtrace[1]['line']
-    );
-}
 
   /**
    * Checks links in a homepage area
@@ -472,7 +431,7 @@ public function spin ($lambda, $wait = 60){
    * @param object $table
    *   TableNode
    */
-  public function iShouldSeeTheFollowingLinksInArea($region, TableNode $table) {
+  public function iShouldSeeTheFollowingLinksInTheArea($region, TableNode $table) {
     foreach ($table->getHash() as $content) {
       $keys = array_keys($content);
       $key = str_replace('s', '', $keys[0]);
@@ -662,20 +621,63 @@ public function spin ($lambda, $wait = 60){
         break;
     }
   }
-    // /**
-    //  * @Given /^I switch to window "([^"]*)"$/
-    //  */
-    // public function iSwitchToWindow($arg1)
-    // {
-    // $this->getSession()->wait(5000);
-    // $this->getSession()->switchToWindow($arg1);
-    // }
 
-    // /**
-    // * @Then /^I get window names$/
-    // */
-    // public function iGetWindowNames()
-    // {
-    //     return $this->wdSession->window_handles();
-    // }
+//   /**
+//    * @Given /^I wait the result to appear$/
+//    */
+//
+// public function iWaitForTheResultToAppear() {
+//   $this->getSession()->wait(4000, "$('a:contains('London, United Kingdom')')");
+// }
+
+/**
+ * @Given /^I wait the result to appear$/
+ */
+    public function iWaitForTheSuggestionBoxToAppear()
+    {
+        $this->getSession()->wait(5000, "$('.suggestions-results').children().length > 0");
+    }
+    /**
+    *
+    * @Given /^I click and wait "([^"]*)"$/
+    */
+    public function iWaitForSomethingImplicit($elementname)
+    {
+      $session->timeouts()->implicit_wait(array('ms'=>5000));
+    }
+/**
+ * @Then /^I should see images in the gallery$/
+ */
+   public function iShouldSeeImagesInTheGallery(){
+  $result = $this->getSession()->getPage()->find('css', '.panel-pane .view-display-id-gallery');
+  if (empty($result)) {
+    throw new Exception('No images found in the gallery');
+    }
+  }
+
+  /**
+   * @Given /^I wait for the dropdown list to appear$/
+   */
+  public function iWaitForTheDropdownListToAppear() {
+
+    $this->getSession()->Wait(2000,
+      "$('.ui-autocomplete').children().length > 1"
+    );
+  }
+
+  /**
+   * @Then /^I should click the first brand$/
+   */
+  public function iShouldClickTheFirstBrand() {
+    $result = $this->getSession()->getPage()->Find('css', '#content > article > div > div > div > p:nth-child(3) > a:nth-child(1) > img');
+    // check that element has href attribute:
+    // $result->hasAttribute('href');
+
+// get element's href attribute:
+    // echo $result->getAttribute('href');
+    if (empty($result)) {
+    throw new Exception ('no element found');
+    }
+    $result-Click();
+  }
 }

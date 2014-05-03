@@ -1,11 +1,11 @@
-@tcuk @javascript @smoke
+@ttcuk @javascript @smoke
 Feature: Perform smoke tests on the thetravelclub.co.uk site
 	In order to verify that the site is up and running
 	As a regression tester
 	I need to visit numerous pages and check text, headings, links and page elements
 
 Background: All tests start at the homepage
-     Given I go to the page "TCUK Home Page" 
+  Given I go to the page "TCUK Home Page"
 
 Scenario: Access and validate thetravelclub home page links, Text and headings
 	Given I should see the heading "Welcome to The Travel Club"
@@ -14,7 +14,7 @@ Scenario: Access and validate thetravelclub home page links, Text and headings
 	And I should see the following <links>
 	| links |
 	| Holidays |
-	| Flights| 
+	| Flights|
 	| Excursions |
 	| Club Perks |
 	| Special offers |
@@ -32,13 +32,13 @@ Scenario: Access and validate thetravelclub home page links, Text and headings
 	| *Terms conditions|
 	| Travel Club General Terms and Conditions |
  ## First and business missed as there is a grammar issue with it ##
- 	And I should see "Flight Centre (UK) Limited Registered in England No.2937210"	
+ 	And I should see "Flight Centre (UK) Limited Registered in England No.2937210"
 
 Scenario: Confirm the Links and page content for the footer links - privacy-policy
 	Given I click the "Privacy Policy"
 	And I wait for the page to load
 	And print current URL
-	Then I should see the heading "Privacy Policy"
+	Then I should see the heading "Privacy Notice"
 	And I should be on "/privacy-policy"
 	And I should see "What is personal information?"
 
@@ -66,9 +66,8 @@ Scenario: Confirm the Links and page content for the footer links - Terms and Co
 	Given I click the "Terms Conditions"
 	And I wait for the page to load
 	And print current URL
-	Then I should see the heading "The Travel Club general terms and conditions"
+	Then I should see "The Travel Club General Terms and Conditions"
 	And I should be on "/terms-conditions"
-	And I should see the heading "Flight Centre (UK) Ltd trading as 'The Travel Club' booking conditons"
 
 Scenario: Confirm the Nav bar links and sub elements exist - Holidays
 	Given I hover over "Holidays"

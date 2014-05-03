@@ -80,34 +80,6 @@ Scenario: Access and verify the 'Airfare Deals' and subsequent sub pages
 | Call us now|
 | Email us|
 
-## Page changed, tests will need to be updated ##
-
-	# When I click the "All Airfare Deals"
-	# Then I should see the heading "Flight Deals"
-	# Then I click "« Back"
-	# And I wait for the page to load
-
-	# Given I click the "All Regions"
-	# And I wait for the page to load
-	# Then I click the "New Zealand"
-	# And I wait for the page to load
-	# Then I click "All New Zealand destinations"
-	# Then I click the "Christchurch"
-	# And I click the "Search"
-	# And I should not see "We could not find any trips with your search criteria."
-	# But I should see the heading "Flight Deals"
-	# Then I click "« Back"
-
-	# Given I click the "By Airline"
-	# When I click "Air New Zealand"
-	# Then I should see the heading "Los Angeles"
-	# Then I click "« Back"
-
-	# Given I click the "By Upgrade Class"
-	# Then I click "First Class"
-	# Then I should see the heading "Flight upgrade deals"
-	# And I should see "First Class"
-
 Scenario: Access and verify the 'Holiday Deals' and subsequent sub pages
 	When I click the "Holiday Deals"
 	And I wait for the page to load
@@ -153,12 +125,12 @@ Scenario: Access and verify the 'City Break Deals' and subsequent sub pages
 	And I should not see "Sorry, the page you were looking for could not be found."
 	And I should see the heading "Refine city breaks"
 	Then I should see the following <links>
-| links |
-| All City Breaks Deals|
-| Europe City Deals|
-| USA City Deals|
-| Dubai Deals|
-| Far East Deals|
+	| links |
+	| All City Breaks Deals|
+	| Europe City Deals|
+	| USA City Deals|
+	| Dubai Deals|
+	| Far East Deals|
 
 	Given I click the "All City Breaks Deals"
 	And I wait for the page to load
@@ -216,8 +188,6 @@ Scenario: Confirm the social link are working
 		Then I move backward one page
 		And I wait for the page to load
 	Given I click "Google +"
-	And print current URL
-	Then I should see "Join Google+ to follow Flight Centre UK."
 		Then I move backward one page
 
 Scenario: Check the email form

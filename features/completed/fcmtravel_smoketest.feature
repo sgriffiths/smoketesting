@@ -257,7 +257,7 @@ Scenario: Go to the fcm.travel home page and select Germany and confirm the resu
 Scenario: Go to the fcm.travel home page and select Greece and confirm the resulting page details
 	Given I hover over "Select A Country"
 	When I click "Greece"
-	And I should see "+30 210 9959111"
+	And I should see "210 6803177"
 	Then print current URL
 
 Scenario: Go to the fcm.travel home page and select Hungary and confirm the resulting page details
@@ -537,4 +537,3 @@ Scenario: Go to the fcm.travel home page and select New Zealand and confirm the 
 	When I click "New Zealand"
 	And I should see "Call us on 0800 747 767"
 	Then print current URL
-

@@ -11,22 +11,22 @@ Background: All tests start at the homepage
 
 Scenario: Access and check the homepage links, headings and text
 	Given I should see the following <links>
-| links|
-| Hot Deals|
-| Holidays|
-| Flights|
-| Store Finder|
-| Call Us|
+	| links|
+	| Hot Deals|
+	| Holidays|
+	| Flights|
+	| Store Finder|
+	| Call Us|
 
-And I should see the following <text>
-|text|
-| View full website|
-| Terms of Use|
-| Terms & Conditions|
-| Privacy Policy|
+	And I should see the following <text>
+	|text|
+	| View full website|
+	| Terms of Use|
+	| Terms & Conditions|
+	| Privacy Policy|
 
 Scenario: Perform a search and confirm the results
-		Given I fill in the "ET Search" field with "london"
+		Given I fill in the "ET Search" field with "london your way"
 		Then I click the "Searching Button"
 		And I wait for the page to load
 		Then I should see the heading "London Your Way"
@@ -35,8 +35,6 @@ Scenario: Perform a search and confirm the results
 		Then I click the "First Result"
 		And print current URL
 		Then I should see the heading "Share via Facebook"
-		And I should see the heading "LONDON YOUR WAY"
-		And I should be on "/product/2954175"
 		Then I click the "Share"
 		And I should see the following <text>
 		|text|
@@ -134,7 +132,7 @@ Scenario: Access and verify the 'Flights' page and sub pages
 
 Scenario: Access and verify the 'Store Finder' page and sub pages
 	When I click "Store Finder"
-	And I wait for the page to lad
+	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
 	And I should be on "/store-finder"
 	Then I should see the heading "STORE FINDER"
@@ -143,7 +141,7 @@ Scenario: Access and verify the 'Store Finder' page and sub pages
 Scenario: Access and confirm content on the footer links
 	Given I click "View full website"
 	And print current URL
-	Then I should be on "/?mobile-false"k
+	Then I should be on "/?mobile-false"
 	Then I move backward one page
 	And I wait for the page to load
 

@@ -187,7 +187,7 @@ Scenario: Access and check the 'site map' page links
 | Weddings & Honeymoons 		|
 | Triple Treat Holidays 		|
 
-Scenario: 'Flights': hover over navigation links  and verify headings and elements 
+Scenario: 'Flights': hover over navigation links  and verify headings and elements
 
 	Given I hover over "Flights"
 	Then I should see the following <links>

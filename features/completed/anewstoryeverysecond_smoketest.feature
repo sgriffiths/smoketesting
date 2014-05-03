@@ -24,14 +24,14 @@ Scenario: Select the 'submit your story' link and verify fields
 	Given I click the "Submit Your Story"
 	Then I should see the following <text>
 	|text|
-	| Title 		   |
-	| Story   	  	   |
-	| Consultant Name  |
-	| Email Address    |
-	| Store 		   |
-	| T3	 		   |
-	| Area Leader Name |
-	| Area Name 	   |
+	| Title|
+	| Story|
+	| Consultant Name|
+	| Email Address|
+	| Store|
+	| T3|
+	| Area Leader Name|
+	| Area Name|
 
 Scenario: Filter the stories by country
 	Given I click the "View Stories"

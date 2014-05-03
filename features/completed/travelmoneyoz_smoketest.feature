@@ -5,14 +5,14 @@ Feature: Perform smoke tests on the travelmoneyoz site
 	I need to visit numerous pages and check text, headings, links and page elements
 
 Background: All tests start at the homepage
-     Given I go to the page "TMOZ Home Page" 
+     Given I go to the page "TMOZ Home Page"
 
 Scenario: Access and validate travelmoneyoz home page links, Text and headings
 	And I should see the heading "Find out about..."
 	And I should see the following <links>
 	| links |
 	| Find a Store |
-	| Contact Us| 
+	| Contact Us|
 	| Currency Exchange |
 	| Cash Passport |
 	| Money Transfer |
@@ -32,7 +32,7 @@ Scenario: Check the page links in the bottom region - find-a-store
 	And I should see the following <links>
 	| links |
 	| currency exchange|
-	| Cash Passport Prepaid Currency Cards| 
+	| Cash Passport Prepaid Currency Cards|
 	| MoneyGram International Money|
 	| Transfers|
 	| CoverMore Travel Insurance |
@@ -162,7 +162,7 @@ Scenario: Check the page links in the Navigation region - Money Transfer
 	And I wait for the page to load
 	Then print current URL
 	Then I should be on "/international-transfer"
-	And I should see the heading "International Mone sy Transfer"
+	And I should see the heading "International Money Transfer"
 
 Scenario: Check the page links in the Navigation region - Travel Insurance
 	Given I click "Travel Insurance" in the "navigation" region

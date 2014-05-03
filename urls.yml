@@ -35,5 +35,27 @@ Hawaii: "/destinations/Hawaii"
 Las Vegas: "/world-travel/las-vegas"
 Sfnz: "/"
 Sfnz World Travel Home Page: "/world-travel"
+
+#Singapore
+FCSG Home Page: "/"
+Subscription: "/contact-us/email-subscription"
+
+#FCZA
+Dubai: "/world-travel/united-arab-emirates/dubai"
+France: "/world-travel/france"
+Flights: "/flights"
+
+#FCNZ
+FCNZ Destinations Page: "/world-travel"
+FCNZ Home Page: "/"
+Dubai: "/world-travel/united-arab-emirates/dubai"
+France: "/world-travel/france"
+
+#FCCUK
+FCCUK Home Page: "/"
+
+#CANZ
+CANZ Home Page: "/"
+
 #Testing
 Google: "/"

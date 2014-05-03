@@ -203,4 +203,3 @@ Scenario: Access and check the Privacy Policy page
 	Then I should see the heading "Privacy Policy"
 	Then I should see the heading "What is personal information?"
 	And I should see "From time to time it may be necessary for us to review and revise this Policy. We reserve the right to change our Policy at any time and for any reason. If we make a change to the Policy, the revised version will be posted on our website."
-

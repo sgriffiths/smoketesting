@@ -5,7 +5,7 @@ Feature: Perform smoke tests on the corporatetraveller.com.au site
 	I need to visit numerous pages and check text, headings, links and page elements
 
 Background: All tests start at the homepage
-     Given I go to the page "Corporate Traveller Home Page" 
+     Given I go to the page "Corporate Traveller Home Page"
 
 Scenario: Access and validate the corporate traveller home page links, Text and headings
 	Given I should see "Join our growing list of clients"
@@ -14,7 +14,7 @@ Scenario: Access and validate the corporate traveller home page links, Text and 
 	And I should see the following <links>
 	| links |
 	| Cost savings 		  |
-	| Increased efficiency| 
+	| Increased efficiency|
 	| Policy Compliance   |
 	| Reporting 		  |
 	| Your own local team |
@@ -65,7 +65,7 @@ Scenario: Select links and confirm pages from the right sidebar
 	When I go to the page "Appointment"
 	And I wait for the page to load
 	Then I should see the heading "Appointment"
-	
+
 	When I go to the page "Team Finder"
 	And I wait for the page to load
 	Then I should see the heading "Team finder"
@@ -81,7 +81,7 @@ Scenario: Select links and confirm pages from the right sidebar
 	And I should see "Australia, call 1300 415 269. Overseas, call +61 7 3170 7863"
 
 	When I go to the page "23 Secrets"
-	And I wait for the page to load	
+	And I wait for the page to load
 	Then I should not see "Page not found"
 
 Scenario: Able to subscribe and get a valid response back

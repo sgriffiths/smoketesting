@@ -6,7 +6,7 @@ Feature: Perform smoke tests on the foundation production and Acquia Test sites
 	I need to go through and check various pages and elements
 
 Background: All tests start at the homepage
-     Given I go to the page "Fcfoundation" 
+     Given I go to the page "Fcfoundation"
 
 Scenario: Go to the fclfoundation page and confirm text and links
 	And I should see the heading "About the Flight Centre Foundation"
