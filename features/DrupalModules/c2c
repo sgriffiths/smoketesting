@@ -1,0 +1,110 @@
+Feature: As an admin I want to create an Click to Call
+	In order to Create the Click to Call
+	As an Admin
+	I need create and a new webform and configure the settings
+
+
+	==== Acceptance Criteria: ====
+
+
+	> Admin enables modules if not already enabled
+	> Click to Call type is able to be configured
+	> Administrator can configure and save the Click to Call settings
+
+Scenario: Confirm that Click to Call is enabled
+	Given I login as an admin
+	And I go to the page "Modules"
+	When I check the "FCL Click to Call" checkbox
+	When I press "op"
+	Then the "FCL Click to Call" should be checked
+
+Scenario: I want to configure the Click to call module settings
+	Given I login as an admin
+	And I go to the page "C2c Config"
+	When I select the radio button "Off" with the id "edit-ctc-reporting-false"
+	Given I click "Brand Plids"
+	Then I fill in "NSW, ACT, NT" with "wZwbHe4"
+	Then I fill in "VIC, TAS" with "xsPsE2"
+	Then I fill in "SA" with "4CXB75X"
+	Then I fill in "QLD" with "jLkUqJ"
+	Then I fill in "WA" with "kk896R"
+	Then I fill in "Default" with "jLkUqJ"
+	Given I click "First button options"
+	When I select the radio button "No" with the id "edit-first-enabled-no"
+	Given I click "Second button options"
+	When I select the radio button "No" with the id "edit-second-enabled-no"
+
+#Display Messages
+	Given I click "Display Messages"
+	Then I fill in "Call in progress" with "Call in progress"
+	Then I fill in "Missing area code" with "Please enter your area code before your telephone number"
+	Then I fill in "Missing post code" with "Please enter your postcode"
+	Then I fill in "Postcode invalid" with "Australian postcodes are 3 or 4 digit numbers between 200-300 or 800-9999."
+	Then I fill in "Connecting Now" with "Connecting..."
+	Then I fill in "Dialing" with "Connected!"
+	Then I fill in "Connected" with "Connected!"
+	Then I fill in "Ringing" with "Ringing..."
+
+#Error Messages
+	Given I click "Error Messages"
+	Then I fill in "Standard error" with "Consultants have gone home for the day! Try us again during business hours."
+	Then I fill in "Maximum free calls" with "You have used all your free calls. Please join to continue using Pep-Talk"
+	Then I fill in "Number invalid" with "The number you have entered is invalid. Please enter your full number including area code."
+	Then I fill in "Outside trading hours" with "Consultants have gone home for the day! Try us again during business hours."
+	Then I fill in "Busy" with "Are you on another call? We're trying to call but can't get through."
+	Then I fill in "Consultants busy" with "Sorry, all of our consultants are currently attending other calls, please wait a few minutes and try again."
+	Then I fill in "No answer" with "We just missed you! Try us again and have your phone ready."
+	Then I fill in "No consultant answer" with "There are currently no consultants to take your call, please try again in a few minutes."
+	Then I fill in "Hang up" with "There are currently no consultants to take your call, please try again in a few minutes."
+	Then I click the "Save"
+	Then I should see "The configuration options have been saved."
+
+#Block Config
+	Given I go to the page "Block Config"
+	When I select "Sidebar first" from the "Bartik Region" selector
+	And I click the "Save"
+
+#Check the block shows on the homepage
+	Then I go to the page "Home Page"
+	And I wait for the page to load
+	Then I should see the heading "Click to Call"
+
+Scenario: Verify Error codes
+	Given I go to the page "Home Page"
+	When I press "Call me"
+	Then I should see "Please specify your number"
+	And I should see "Required"
+	When I fill in the "Phone Number" field with "abc"
+	Then I should see "Please enter only digits."
+	When I fill in the "Phone Number" field with "0712341234"
+	Then I should not see "Please enter only digits."
+	When I fill in the "Postcode" field with "abcd"
+	Then I should see "Please enter only digits."
+	When I fill in the "Postcode" field with "4000"
+	Then I should not see "Please enter only digits."
+	And I should not see "Please specify your number"
+
+ Scenario: Enter valid phone number should receive success
+   Given I go to the page "Home Page"
+   When I click element with css "Click To Call"
+   And I register click to call success listener
+   And I fill in "edit-phone" with "071234123"
+   And I fill in "edit-pcode" with "4000"
+   And I press "Call me"
+   Then I get connected after "5000" with "success"
+
+Scenario: Entering invalid post code should fail
+   Given I go to the page "Home Page"
+   When I click element with css "Click To Call"
+   And I register click to call success listener
+   And I fill in "edit-phone" with "999999999"
+   And I fill in "edit-pcode" with "9999"
+   And I press "Call me"
+   Then I get error after "10000" with "Please ensure plid is set"
+
+Scenario: Disable the click to call module
+	Given I login as an admin
+	And I go to the page "Modules"
+	When I uncheck the "FCL Click to Call" checkbox
+	When I press "op"
+	Then the "FCL Click to Call" should not be checked
