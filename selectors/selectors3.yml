@@ -1,0 +1,29 @@
+#FCSG
+Flights: "#menu-2818-1 > a"
+Holidays: "#menu-2900-1 > a"
+Tours: "#menu-773-1 > a"
+Cruises: "#menu-776-1 > a"
+Business Travel: "#menu-1209-1 > a"
+Travel Extras: "#menu-1316-1 > a"
+Destinations: "#menu-2592-1 > a"
+Destination: "#ajax-dest-str-string-destination_in"
+Find Deals: "#edit-submit"
+Australia: "#block-block-8 > div > ul > li:nth-child(3) > a"
+
+#FCNZ
+NZ Destinations: "li > a:contains('Destinations')"
+Search Holidays to:: "#edit-bydestination"
+Search Holidays: "#edit-submit--3"
+Ask an Expert: "#click-to-call-sidebar a:contains('Expert')"
+Find a Store: "#click-to-call-sidebar a:contains('store')"
+
+#FCCUK
+Search Jobs: "#edit-submit-job-search"
+First Result: "#content div.views-row.views-row-1.views-row-odd.views-row-first > div.views-field.views-field-title-1 > span > a"
+Flight Centre Brand Image: "#block-views-brands-on-job-detail-page-block > div > div.view-content > div > div > div > a"
+Current Opportunities Button: "a:contains('Current opportunities')"
+Working With Us: "#menu-503-1 > a"
+Our Brands: "#menu-502-1 > a"
+Job Search: "#menu-507-1 > a"
+Events: "#menu-634-1 > a"
+Contact Us: "#menu-633-1 > a"

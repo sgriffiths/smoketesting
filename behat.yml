@@ -10,7 +10,7 @@ default:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
+      selectorFilePath: selectors/selectors.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -28,7 +28,7 @@ default:
         megamenu: "#megamenu"
         header subscribe panel: "#header-subscribe-panel"
 
-flightcentre:
+fcau:
   paths:
     features: 'features'
   extensions:
@@ -40,7 +40,7 @@ flightcentre:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors_fcau.yml
+      selectorFilePath: selectors/selectors_fcau.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -77,7 +77,7 @@ sauce_ct:
         wd_host:
         capabilities: {  "platform": "Windows 7" , "version": "21" , "name":"corporatetraveller" }
 
-travel-associates:
+taau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://www.travel-associates.com.au/
@@ -86,7 +86,7 @@ travel-associates:
       selenium2:
       goutte: ~
 
-escape-travel:
+etau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: htdocstp://www.escapetravel.com.au/
@@ -122,7 +122,7 @@ test:
       selenium2:
       goutte: ~
 
-corporate-traveller-au:
+ctau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://corporatetraveller.com.au
@@ -131,7 +131,7 @@ corporate-traveller-au:
       selenium2:
       goutte: ~
 
-corporate-traveller-nz:
+ctnz:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://corporatetraveller.co.nz
@@ -158,7 +158,7 @@ fcfoundation:
       selenium2:
       goutte: ~
 
-fctravelclub:
+fctc:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://fctravelclub.com.au
@@ -176,7 +176,7 @@ mfcuk:
       selenium2:
       goutte: ~
 
-m-escapetravel.com.au:
+metau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://m.escapetravel.com.au
@@ -185,7 +185,7 @@ m-escapetravel.com.au:
       selenium2:
       goutte: ~
 
-studentflights.com.au:
+sfau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://studentflights.com.au
@@ -194,7 +194,7 @@ studentflights.com.au:
       selenium2:
       goutte: ~
 
-flightcentrelimited.com:
+fcl:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://flightcentrelimited.com
@@ -203,7 +203,7 @@ flightcentrelimited.com:
       selenium2:
       goutte: ~
 
-thetravelclub.co.uk:
+tcuk:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://thetravelclub.co.uk
@@ -213,12 +213,12 @@ thetravelclub.co.uk:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-travelmoneyoz:
+tmoz:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://travelmoneyoz.com
@@ -228,26 +228,12 @@ travelmoneyoz:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
         UIBusinessSelector: ~
-fcza:
-  extensions:
-    Behat\MinkExtension\Extension:
-      base_url: http://www.flightcentre.co.za
-      javascript_session: 'selenium2'
-      browser_name: firefox
-      selenium2:
-      goutte: ~
-    OrangeDigital\BusinessSelectorExtension\Extension:
-      urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
-      assetPath: path
-      timeout: 30
-      contexts:
-        UIBusinessSelector: ~
+
 sfau:
   extensions:
     Behat\MinkExtension\Extension:
@@ -258,7 +244,7 @@ sfau:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -280,7 +266,7 @@ sfnz:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -292,3 +278,130 @@ sfnz:
       region_map:
         footer links: "#footer-links-row"
         seo links: "#seo-links-row"
+
+fcsg:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.flightcentre.com.sg
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer inner: "#footer-inner"
+        seo links: "#seo-links-row"
+        header top: "#header-top"
+
+fcza:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.flightcentre.co.za
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors2.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        sidebar menu: ".view-dest-sidebar-menu"
+        Browse Destinations: ".browse-links:contains('Browse Destinations')"
+        Tabs: ".ui-tabs-nav"
+        Browse Flights: ".browse-links:contains('Browse Flights')"
+        World Map: ".view-dest-world-map"
+
+fcnz:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.flightcentre.co.nz
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        sidebar menu: ".view-dest-sidebar-menu"
+        Browse Destinations: ".browse-links:contains('Browse Destinations')"
+        Tabs: ".ui-tabs-nav"
+        Browse Hotels: ".browse-links:contains('Browse Hotels')"
+        World Map: ".view-dest-world-map"
+        sidebar menu: ".view-dest-sidebar-menu"
+
+fccuk:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.flightcentrecareers.co.uk/
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        superfish header block: "#block-superfish-1"
+        widgets: ".view-home-page-widgets"
+        bottom region: ".region-bottom"
+        hero region: ".region-hero"
+
+canz:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.cruiseabout.co.nz
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30acquia
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer links: "#footerLinks"
+        footer nav: "#footerNav"
+        main nav: "#mainNav"
+        cruise search form: "#cruiseSearchForm"

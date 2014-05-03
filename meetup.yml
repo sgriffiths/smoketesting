@@ -1,0 +1,23 @@
+meetup:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.australia.gov.au
+      javascript_session: 'selenium2'
+      browser_name: chrome
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: meetupurls.yml
+      selectorFilePath: selectors/meetupselectors.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer links: "#footerCorporate"
+        page header: "#pageHeader"
+        refine results: "#searchFluster > div:nth-child(2)"

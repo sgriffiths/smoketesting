@@ -1,0 +1,36 @@
+#thetravelclub.co.uk
+
+Privacy Policy: "a:contains('Privacy policy')"
+Footer Contact Us: "a:contains('Contact us')"
+Terms Conditions: "a:contains('*Terms conditions')"
+Club Giveaways: "a:contains('here')"
+
+TC Holidays: "#menu-463-1 > a"
+TC Flights: "#menu-462-1 > a"
+Special Offers: "#menu-535-1 > a"
+Excursions: "#menu-532-1 > a"
+Club Perks: "#menu-533-1 > a"
+About Us: "#menu-534-1 > a"
+Contact Us: "#menu-542-1 > a"
+Join Now: "#menu-3237-1 > a"
+
+# travelmoneyoz
+
+Popup Close: "#habla_sizebutton_a"
+Chat with us: "#habla_oplink_a"
+
+# FCZA
+
+ZA Destinations: "li > a:contains('Destinations')"
+France: "#menu-1720-1 > a:contains('France')"
+Find Flights to: "#byDestination"
+Find Deals: "#airfareSearch > button"
+Email a Travel Expert: "#click-to-call-sidebar a:contains('Expert')"
+Find a Store: "#click-to-call-sidebar a:contains('store')"
+
+#SFAU
+Search: "#db-search"
+Go: "#subscribeBtn > input"
+Bali: ".pane-block-29 li > a:contains('Bali')"
+Europe: ".pane-block-29 li > a:contains('europe')"
+Search: ".destination-search"

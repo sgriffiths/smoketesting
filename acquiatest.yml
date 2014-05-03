@@ -10,7 +10,7 @@ default:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors.yml
+      selectorFilePath: selectors/selectors.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -25,9 +25,10 @@ default:
         bottom: ".region-bottom"
         header: "#header"
         navigation: "#navigation"
-        footer links: "#footer-links-row"
+        megamenu: "#megamenu"
+        header subscribe panel: "#header-subscribe-panel"
 
-corporate-traveller-au:
+ctau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.corporatetraveller.com.au/
@@ -36,7 +37,7 @@ corporate-traveller-au:
       selenium2:
       goutte: ~
 
-corporate-traveller-nz:
+ctnz:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.corporatetraveller.co.nz/
@@ -64,7 +65,7 @@ nses:
       selenium2:
       goutte: ~
 
-escape-travel:
+etau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiadev.escapetravel.com.au/
@@ -73,7 +74,7 @@ escape-travel:
       selenium2:
       goutte: ~
 
-travel-associates:
+taau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.travel-associates.com.au/
@@ -82,7 +83,7 @@ travel-associates:
       selenium2:
       goutte: ~
 
-flightcentre:
+fcau:
   paths:
     features: 'features'
   extensions:
@@ -94,13 +95,13 @@ flightcentre:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors_fcau.yml
+      selectorFilePath: selectors/selectors_fcau.yml
       assetPath: path
       timeout: 30
       contexts:
         UIBusinessSelector: ~
 
-corporate-traveler-us:
+ctus:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://corporatetraveler.us
@@ -118,7 +119,7 @@ fcfoundation:
       selenium2:
       goutte: ~
 
-m-flightcentre.co.uk:
+mfcuk:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.m.flightcentre.co.uk
@@ -127,7 +128,7 @@ m-flightcentre.co.uk:
       selenium2:
       goutte: ~
 
-m-escapetravel.com.au:
+metau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.m.escapetravel.com.au
@@ -136,7 +137,7 @@ m-escapetravel.com.au:
       selenium2:
       goutte: ~
 
-studentflights.com.au:
+sfau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.studentflights.com.au
@@ -145,7 +146,7 @@ studentflights.com.au:
       selenium2:
       goutte: ~
 
-flightcentrelimited.com:
+fcl:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.flightcentrelimited.com
@@ -154,7 +155,7 @@ flightcentrelimited.com:
       selenium2:
       goutte: ~
 
-thetravelclub.co.uk:
+tcuk:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.thetravelclub.co.uk
@@ -164,13 +165,13 @@ thetravelclub.co.uk:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
         UIBusinessSelector: ~
 
-travelmoneyoz:
+tmoz:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.travelmoneyoz.com
@@ -180,7 +181,7 @@ travelmoneyoz:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -190,16 +191,26 @@ fcza:
     Behat\MinkExtension\Extension:
       base_url: http://acquiatest.flightcentre.co.za
       javascript_session: 'selenium2'
-      browser_name: firefox
+      browser_name: chrome
       selenium2:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
         UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        sidebar menu: ".view-dest-sidebar-menu"
+        Browse Destinations: ".browse-links:contains('Browse Destinations')"
+        Tabs: ".ui-tabs-nav"
+        Browse Flights: ".browse-links:contains('Browse Flights')"
+        World Map: ".view-dest-world-map"
 sfau:
   extensions:
     Behat\MinkExtension\Extension:
@@ -210,7 +221,7 @@ sfau:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -225,7 +236,7 @@ sfnz:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
       urlFilePath: urls.yml
-      selectorFilePath: selectors2.yml
+      selectorFilePath: selectors/selectors2.yml
       assetPath: path
       timeout: 30
       contexts:
@@ -237,3 +248,74 @@ sfnz:
       region_map:
         footer links: "#footer-links-row"
         seo links: "#seo-links-row"
+
+fcsg:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.flightcentre.com.sg
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        footer inner: "#footer-inner"
+        seo links: "#seo-links-row"
+
+fcnz:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.flightcentre.co.nz
+      javascript_session: 'selenium2'
+      browser_name: chrome
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        sidebar menu: ".view-dest-sidebar-menu"
+        Browse Destinations: ".browse-links:contains('Browse Destinations')"
+        Tabs: ".ui-tabs-nav"
+        Browse Hotels: ".browse-links:contains('Browse Hotels')"
+        World Map: ".view-dest-world-map"
+
+fccuk:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://acquiatest.flightcentrecareers.co.uk/
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        superfish header block: ".block-superfish-1"

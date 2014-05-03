@@ -1,0 +1,47 @@
+### flightcentre.com.au ###
+#footer links
+About Flight Centre Footer: "div.footer-links li:contains('About Flight Centre') > a"
+Contact Us: "div.footer-links li:contains('Contact Us') > a"
+Careers: "div.footer-links li:contains('Careers') > a"
+Terms & Conditions: "div.footer-links li:contains('Terms & Conditions') > a"
+Terms of use: "div.footer-links li:contains('Terms of use') > a"
+Privacy Policy: "div.footer-links li:contains('Privacy policy') > a"
+Site Map: "div.footer-links li:contains('Site map') > a"
+
+#Careers right sidebar selections
+Why work for Flight Centre: 
+Becoming a Travel Sales Consultant: "ul > li:contains('Becoming a Travel Sales Consultant') > a"
+Our Recruitment Process: "ul > li:contains('Our Recruitment Process') > a"
+Our Culture: "ul > li:contains('Our Culture') > a"
+Career Progression & Development: "ul > li:contains('Career Progression & Development') > a"
+Graduate Program: "ul > li:contains('Graduate Program') > a"
+Flight Centre Travel Academy: "ul > li:contains('Flight Centre Travel Academy') > a"
+News & Events: "ul > li:contains('News & Events') > a"
+Frequently Asked Questions: "ul > li:contains('Frequently Asked Questions') > a"
+
+#Nav tabs
+Flights: "ul > li:contains('flights') > a"
+Holiday Packages: "ul > li:contains('Holiday Packages') > a"
+Hotels: "ul > li:contains('Hotels') > a"
+Rail: "ul > li:contains('Rail') > a"
+Tours: "ul > li:contains('Tours') > a"
+Cruises: "ul > li:contains('Cruises') > a"
+Extras: "ul > li:contains('Extras') > a"
+Destinations: "ul > li:contains('Destinations') > a"
+Deals: "ul > li:contains('Deals') > a"
+
+#Search
+Top Search Button: "#suggestion_form_gs > button"
+Search Field: "#suggestion_form_gs > input"
+
+#Postcode Search
+
+Postcode: "#postcode"
+Find Store Button: "div.storeLocator > form > button"
+Flight Centre Manly West: "li.store-0.stripe.store_finder_store > div > span.address"
+Flight Centre Wynnum Plaza: "li.store-1.store_finder_store > div > span.address"
+
+#Cheap Flights, Holidays and Travel Deals
+
+Domestic Flights Link: "ul > li:contains('Domestic Flights') > a > span"
+About Flight Centre: "ul > li:contains('About Flight Centre') > h2 > a > span"
