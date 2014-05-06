@@ -405,3 +405,28 @@ canz:
         footer nav: "#footerNav"
         main nav: "#mainNav"
         cruise search form: "#cruiseSearchForm"
+
+fcmenquiry:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.fcm.travel
+      javascript_session: 'selenium2'
+      browser_name: firefox
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30acquia
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        Enquiry Form: ".accordion-content"
+      selectors:
+        message_selector: ".message.error"
+        error_message_selector: ".messages.error"

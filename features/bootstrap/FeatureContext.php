@@ -656,13 +656,15 @@ public function iScrollDownThePage() {
   }
 
   /**
-   * @Given /^I wait for the dropdown list to appear$/
+   * @Given /^I wait for the Enquiry dropdown list to appear$/
    */
-  public function iWaitForTheDropdownListToAppear() {
+  public function iWaitForTheEnquiryDropdownListToAppear() {
 
     $this->getSession()->Wait(2000,
-      "$('.ui-autocomplete').children().length > 1"
-    );
+"jQuery('.form-select').children().length > 1");
+      if (empty($result)) {
+      throw new Exception ('no dropdown found');
+    }
   }
 
   /**

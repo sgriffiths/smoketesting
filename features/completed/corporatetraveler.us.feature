@@ -71,18 +71,11 @@ Scenario: Confirm the superfish top menu dropdown links and login page access
 
 	Then I click the "Top Menu Contact Us"
 	And I wait for the page to load
-	#Then I should see the heading "Inquire"
-	#And I should see the following <text>
-	#|text|
-	#|First Name|
-	#|Last Name|
-	#|Phone|
-
 	When I go to the page "Emergency"
 	And I wait for the page to load
 	Then I should see the heading "After Hours Emergency Assistance"
-	And I should see "Team one Los Angeles: +1 (617) 831-2521"
-	And I should see "Corporate Traveler - Chicago"
+	And I should see "Team one Los Angeles:"
+	And I should see "Corporate Traveler"
 
 Scenario: Go to the 'Benefits' page and confirm the sub links, page headings and sidebar content
 	When I click the "Benefits"

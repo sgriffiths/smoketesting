@@ -21,3 +21,6 @@ meetup:
         footer links: "#footerCorporate"
         page header: "#pageHeader"
         refine results: "#searchFluster > div:nth-child(2)"
+      selectors:
+        message_selector: ".message.error"
+        error_message_selector: ".messages.error"

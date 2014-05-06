@@ -1,4 +1,4 @@
-@smoke @t @javascript
+@smoke @taau @javascript
 Feature: smoke test the Travel-Associates production site
 	In order to verify that the site is up and responsive
 	As a website user
@@ -53,7 +53,6 @@ And I should see the following <text>
 | links |
 | Business Class Flights	|
 | First Class Flights		|
-| Platinum Fares 			|
 | Airline Guide 			|
 
 	Given I hover over "TA Cruises"
