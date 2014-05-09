@@ -147,22 +147,6 @@ class FeatureContext extends DrupalContext
   }
 
   /**
-   * @Then /^I (?:|should )see the following <heading>$/
-   */
-  public function iShouldSeeTheFollowingHeading(TableNode $heading) {
-    $element = $this->getSession()->getPage();
-    foreach (array('h1', 'h2', 'h3', 'h4', 'h5', 'h6') as $tag) {
-      $results = $element->findAll('css', $tag);
-      foreach ($results as $result) {
-        if ($result->getText() == $heading) {
-          return;
-        }
-      }
-    }
-    throw new \Exception(sprintf("The text '%s' was not found in any heading on the page %s", $heading, $this->getSession()->getCurrentUrl()));
-  }
-
-  /**
    * @Given /^the background colour of the status should be "([^"]*)"$/
    */
 
@@ -682,4 +666,23 @@ public function iScrollDownThePage() {
     }
     $result-Click();
   }
+
+    /**
+   * @Then /^I (?:|should )see the "(?P<heading>[^"]*)"$/
+   */
+  public function assertHeading($heading) {
+    $element = $this->getSession()->getPage();
+    foreach (array('h1', 'h2', 'h3', 'h4', 'h5', 'h6') as $tag) {
+      $results = $element->findAll('css', $tag);
+      foreach ($results as $result) {
+        if ($result->getText() == $heading) {
+          return;
+        }
+      }
+    }
+    throw new \Exception(sprintf("The text '%s' was not found in any heading on the page %s", $heading, $this->getSession()->getCurrentUrl()));
+  }
+
+
+
 }

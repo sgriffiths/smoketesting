@@ -9,7 +9,7 @@ Background: All tests will start at the Australia.gov.au homepage
   And I should not see "Sorry, the page you were looking for could not be found."
 
 Scenario: The footer links exist are selectable and open the correct pages with content
-  Then I should see the following <links> in "footer links" area
+  Then I should see the following the <links> in "footer links" area
   |links|
   |Accessibility|
   |Copyright|

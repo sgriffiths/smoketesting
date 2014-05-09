@@ -1,4 +1,4 @@
-@javascript @smoke @fcau
+@javascript @regression @fcau
 Feature: Feature: smoke test the FCAU production and Acquia Test sites
 	In order to verify that the site is up and working to some degree
 	As a website user
@@ -10,36 +10,33 @@ Background: All test to start at the homepage
 
 Scenario: Access and check the homepage links, headings and text
 	Then I should see the following <links>
-| links            		|
-| Home            		|
-| Flights          		|
-| Holiday Packages 		|
-| Hotels           		|
-| Rail             		|
-| Tours            		|
-| Cruises          		|
-| Extras           		|
-| Destinations	   		|
-| Deals            		|
-| About Flight Centre	|
-| Contact Us 	   		|
-| Careers		   		|
-| Terms & Conditions	|
-| Terms of use  		|
-| Privacy policy 	 	|
-| Site map 			 	|
-
-# And I should see the heading "Cheap Flights, Holidays and Travel Deals"
-# And I should see the heading "Where do you want to go?"
+	| links|
+	| Home|
+	| Flights|
+	| Holiday Packages|
+	| Hotels|
+	| Rail|
+	| Tours|
+	| Cruises|
+	| Extras|
+	| Destinations|
+	| Deals|
+	| About Flight Centre|
+	| Contact Us|
+	| Careers|
+	| Terms & Conditions|
+	| Terms of use |
+	| Privacy policy|
+	| Site map|
 
 And I should see the following <text>
 
-| text   |
-| Home             |
-| Flights          |
-| Holiday Packages |
-| LOWEST AIRFARE GUARANTEE |
-| ABN 25 003 377 188 ACN 003 377 188 |
+	| text |
+	| Home|
+	| Flights|
+	| Holiday Packages |
+	| LOWEST AIRFARE GUARANTEE |
+	| ABN 25 003 377 188 ACN 003 377 188 |
 
 Scenario: Access and verify the 'about' page
 	When I follow the link "About Flight Centre Footer"
@@ -48,36 +45,36 @@ Scenario: Access and verify the 'about' page
 	And I should see the heading "Don't miss a thing!"
 	And I should see the heading "Lowest Airfare Guarantee"
 	Then I should see the following <links>
-| links |
-| About Flight Centre					|
-| Flight Centre Travel Group Website	|
-| Careers with Flight Centre 			|
-| Media Releases 	 					|
-| Blog 			 						|
-| Terms & Conditions 					|
-| Travel Experts 						|
-| Contact Us 							|
+	| links |
+	| About Flight Centre|
+	| Flight Centre Travel Group Website	|
+	| Careers with Flight Centre|
+	| Media Releases|
+	| Blog|
+	| Terms & Conditions|
+	| Travel Experts|
+	| Contact Us|
 
 Scenario: Access and verify the 'contact us' page
 	When I click the "Contact Us"
 	And I wait for the page to load
 	And I should not see "Sorry, the page you were looking for could not be found."
 	And I should see the following <tabs>
-| tabs |
-| Travel Extras	|
-| Expert Teams	|
-| Feedback 		|
-| Social 		|
-| Corporate 	|
+	| tabs |
+	| Travel Extras|
+	| Expert Teams|
+	| Feedback |
+	| Social |
+	| Corporate|
 
 And I should see the following <text>
 
-| text            	|
-| +61 7 3170 7840   |
-| 1300 733 867     	|
-| Holiday Packages 	|
-| LOWEST AIRFARE GUARANTEE |
-| ABN 25 003 377 188 ACN 003 377 188 |
+	| text|
+	| +61 7 3170 7840 |
+	| 1300 733 867|
+	| Holiday Packages|
+	| LOWEST AIRFARE GUARANTEE |
+	| ABN 25 003 377 188 ACN 003 377 188 |
 
 And I should see the heading "Emergency Global Assistance"
 And I should see the heading "All new bookings and enquiries"
@@ -182,90 +179,70 @@ Scenario: Access and check the 'site map' page links
 	Then print current URL
 	And I should not see "Sorry, the page you were looking for could not be found."
 	Then I should see the following <links>
-| links |
-| Travel Shop					|
-| Weddings & Honeymoons 		|
-| Triple Treat Holidays 		|
+	| links |
+	| Travel Shop|
+	| Weddings & Honeymoons|
+	| Triple Treat Holidays|
 
 Scenario: 'Flights': hover over navigation links  and verify headings and elements
 
 	Given I hover over "Flights"
 	Then I should see the following <links>
-| links |
-| Flights to Bali			|
-| Qantas					|
-| Airport Parking 			|
+	| links |
+	| Flights to Bali|
+	| Qantas|
+	| Airport Parking|
 
 	Given I hover over "Holiday Packages"
 	Then I should see the following <links>
-| links |
-| Honeymoons				|
-| Events			|
+	| links |
+	| Honeymoons|
+	| Events|
 
 	Given I hover over "Hotels"
 	Then I should see the following <links>
-| links |
-| Sydney				|
-| Hawaii    			|
+	| links |
+	| Sydney|
+	| Hawaii |
 
 	Given I hover over "Rail"
 	Then I should see the following <links>
-| links |
-| Europe				|
-| Africa    			|
+	| links |
+	| Europe|
+	| Africa |
 
 	Given I hover over "Tours"
 	Then I should see the following <links>
-| links |
-| Fiji Tours			|
-| Coach Tours    		|
+	| links |
+	| Fiji Tours|
+	| Coach Tours |
 
 	Given I hover over "Cruises"
 	Then I should see the following <links>
-| links |
-| Princess Cruises		|
-| Life on board    		|
+	| links |
+	| Princess Cruises|
+	| Life on board|
 
 	Given I hover over "Extras"
 	Then I should see the following <links>
-| links |
-| Travel Insurance			|
-| Hertz Car Hire    		|
+	| links |
+	| Travel Insurance			|
+	| Hertz Car Hire    		|
 
 	Given I hover over "Destinations"
 	Then I should see the following <links>
-| links |
-| Ireland				|
-| Italy         		|
+	| links|
+	| Ireland|
+	| Italy|
 
 	Given I hover over "Deals"
 	Then I should see the following <links>
-| links |
-| This Week's Hot Deals	|
-| TV Ads         		|
+	| links |
+	| This Week's Hot Deals	|
+	| TV Ads |
 
 Scenario: Perform a search and receive results
 	Given I fill in the "Search Field" field with "New York"
 	Then I click the "Top Search Button"
 	Then I should see "Results"
 	And I should see "Guides"
-
-## Currently not available on acquiatest ##
-
-# Scenario: Search for a store and confirm the details
-# 	Given I click "Your nearest Flight Centre"
-# 	Given I fill in the "Postcode" field with "4154"
-# 	And I click the "Find Store Button"
-# 	And I wait for the page to load
-# 	Then I should see the heading "Flight Centre Manly West"
-# 	When I hover over "Flight Centre Manly West"
-# 	And I click the "Flight Centre Manly West"
-# 	Then I should see "Mon: 9:00am - 5:30pm"
-# 	Given I click the "Flight Centre Wynnum Plaza"
-# 	Then I should see "Distance: 3.6km"
-
-# Scenario: Cheap Flights, Holidays and Travel Deals
-# 	Given I click the "Domestic Flights Link"
-# 	Then I should see "Brisbane »"
-# 	When I click the "About Flight Centre"
-# 	Then I should see the heading "Lowest Airfare Guarantee"

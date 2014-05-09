@@ -11,13 +11,13 @@ Background: All tests to start at the homepage
 Scenario: Access and confirm the links, heading, text  on the 'homepage'
 	Then I should see the following <links>
 | links |
-| Flights         		|
-| Holidays          	|
-| Hot Deals         	|
-| Cruises               |
-| Tours 	   		    |
-| Travel Extras		    |
-| Contact Us		    |
+| Flights|
+| Holidays|
+| Hot Deals|
+| Cruises|
+| Tours|
+| Travel Extras|
+| Contact Us|
 
 And I should see the heading "Check out our most popular holiday packages"
 And I should see the heading "Top Deals from the Holiday Experts"
@@ -58,71 +58,71 @@ Scenario: Homepage Email Us link and form check
 Scenario: Confirm the links in the nav menu dropdowns
 	Given I hover over "ET Flights"
 	Then I should see the following <links>
-| links |
-| Domestic Flights |
-| International Flights |
-| Bali Flights |
-| Fiji Flights |
-| Phuket Flights |
-| Hawaii Flights |
-| London Flights |
-| Round the World Flights |
-| First Class Flights |
-| Business Class Flights |
-| Airline Guides |
-| Airports Guide |
+	| links |
+	| Domestic Flights |
+	| International Flights |
+	| Bali Flights |
+	| Fiji Flights |
+	| Phuket Flights |
+	| Hawaii Flights |
+	| London Flights |
+	| Round the World Flights |
+	| First Class Flights |
+	| Business Class Flights |
+	| Airline Guides |
+	| Airports Guide |
 
 	Given I hover over "ET Holidays"
 	Then I should see the following <links>
-| links |
-| Bali |
-| Gold Coast |
-| School Holidays |
-| MyTime |
+	| links |
+	| Bali |
+	| Gold Coast |
+	| School Holidays |
+	| MyTime |
 
 	Given I hover over "ET Hot Deals"
 	Then I should see the following <links>
-| links |
-| Phuket Deals |
-| Bali Deals |
-| Singapore Deals |
-| Fiji Deals |
-| Gold Coast Deals |
-| Whitsundays Deals |
-| Melbourne Deals |
-| New Zealand Deals |
-| Hawaii Deals |
+	| links |
+	| Phuket Deals |
+	| Bali Deals |
+	| Singapore Deals |
+	| Fiji Deals |
+	| Gold Coast Deals |
+	| Whitsundays Deals |
+	| Melbourne Deals |
+	| New Zealand Deals |
+	| Hawaii Deals |
 
 	Given I hover over "ET Cruises"
 	Then I should see the following <links>
-| links |
-| Cruise Destinations |
-| Cruise Lines |
-| Cruise Ships |
-| Cruises from Australia |
-| Types of cruises |
+	| links |
+	| Cruise Destinations |
+	| Cruise Lines |
+	| Cruise Ships |
+	| Cruises from Australia |
+	| Types of cruises |
 
 	Given I hover over "ET Travel Extras"
 	Then I should see the following <links>
-| links |
-| Phuket Deals |
-| Travel Expo |
-| Commonwealth Awards |
-| Travel Insurance |
-| Car Hire |
-| Gift Cards |
-| Gift Registry |
-| Brochures |
+	| links |
+	| Phuket Deals |
+	| Travel Expo |
+	| Commonwealth Awards |
+	| Travel Insurance |
+	| Car Hire |
+	| Gift Cards |
+	| Gift Registry |
+	| Brochures |
 
 	Given I hover over "ET Contact Us"
 	Then I should see the following <links>
-| links |
-| About Us |
-| Blog |
-| Find a Store |
-| Travel Enquiries & Quotes |
-| Other Enquiries |
-| Careers |
+	| links |
+	| About Us |
+	| Blog |
+	| Find a Store |
+	| Travel Enquiries & Quotes |
+	| Other Enquiries |
+	| Careers |
 
 Scenario: Access and test the Contact Us page incl the store finder and location results
 	When I follow the link "Footer Contact us"
@@ -131,21 +131,21 @@ Scenario: Access and test the Contact Us page incl the store finder and location
 	Then I should be on "/company/contact-us"
 	And I should see the heading "Store Locator"
 	Then I should see the following <links>
-| links |
-| Update details	|
-| Unsubscribe		|
+	| links |
+	| Update details	|
+	| Unsubscribe|
 
 	And I should see the following <text>
-| text |
-| Travel Bookings and Quotes 1300 556 855 |
-| Online flight enquiries and changes 1300 556 855 |
-| Emergency global assistance +61 7 3170 7847 |
-| Car Rental - Australia 1300 558 123 |
-| Hotel Bookings and Changes 1300 556 855 |
-| Travel Insurance 1300 558 123 |
-| Media & Sponsorship requests +61 7 3170 8171 |
-| Complaints & Compliments 1800 117 747 |
-| Travel Insurance 1300 558 123 |
+	| text |
+	| Travel Bookings and Quotes 1300 556 855 |
+	| Online flight enquiries and changes 1300 556 855 |
+	| Emergency global assistance +61 7 3170 7847 |
+	| Car Rental - Australia 1300 558 123 |
+	| Hotel Bookings and Changes 1300 556 855 |
+	| Travel Insurance 1300 558 123 |
+	| Media & Sponsorship requests +61 7 3170 8171 |
+	| Complaints & Compliments 1800 117 747 |
+	| Travel Insurance 1300 558 123 |
 
 	Then I follow the link "Customer Feedback"
 	And I should see the heading "Feedback"

@@ -5,14 +5,14 @@ Feature: Perform smoke tests on the corporatetraveller.co.nz site
 	I need to visit numerous pages and check text, headings, links and page elements
 
 Background: All tests start at the homepage
-     Given I go to the page "Corporate Traveller Home Page" 
+     Given I go to the page "Corporate Traveller Home Page"
 
-Scenario: 	
+Scenario:
 	And I should see "Flight Centre (NZ) Limited trading as Corporate Traveller"
 	And I should see the following <links>
 	| links |
 	| Cost savings 		  |
-	| Increased efficiency| 
+	| Increased efficiency|
 	| Policy Compliance   |
 	| Reporting 		  |
 	| Your own local team |

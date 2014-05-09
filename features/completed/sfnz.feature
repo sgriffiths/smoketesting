@@ -14,7 +14,6 @@ Scenario: Access and check the Destinations page links and nav items
   | links|
   | home |
   | cheap trips |
-  | accommodation|
   | tours|
   | working holidays |
   | get organised |

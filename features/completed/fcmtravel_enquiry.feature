@@ -5,7 +5,7 @@ Feature: Testing the enquiry form
   I want go validate the form fields, populate the form and send it
 
 Background: All tests to start at the 'fcm.travel' homepage
-  Given I go to the page "Fcmtravel Homepage"
+  Given I go to the page "FCM Travel Home Page"
   And I should not see "Sorry, the page you were looking for could not be found."
 
 Scenario: Confirm the enquiry form exists

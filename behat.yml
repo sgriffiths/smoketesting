@@ -89,7 +89,7 @@ taau:
 etau:
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: htdocstp://www.escapetravel.com.au/
+      base_url: http://www.escapetravel.com.au/
       javascript_session: 'selenium2'
       browser_name: firefox
       selenium2:
@@ -158,7 +158,7 @@ fcfoundation:
       selenium2:
       goutte: ~
 
-fctc:
+tcau:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://fctravelclub.com.au
@@ -261,7 +261,7 @@ sfnz:
     Behat\MinkExtension\Extension:
       base_url: http://www.studentflights.co.nz
       javascript_session: 'selenium2'
-      browser_name: firefox
+      browser_name: safari
       selenium2:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
@@ -411,7 +411,7 @@ fcmenquiry:
     Behat\MinkExtension\Extension:
       base_url: http://www.fcm.travel
       javascript_session: 'selenium2'
-      browser_name: firefox
+      browser_name: safari
       selenium2:
       goutte: ~
     OrangeDigital\BusinessSelectorExtension\Extension:
@@ -430,3 +430,27 @@ fcmenquiry:
       selectors:
         message_selector: ".message.error"
         error_message_selector: ".messages.error"
+
+mats:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://www.myadventurestore.com
+      javascript_session: 'selenium2'
+      browser_name: chrome
+      selenium2:
+      goutte: ~
+    OrangeDigital\BusinessSelectorExtension\Extension:
+      urlFilePath: urls.yml
+      selectorFilePath: selectors/selectors3.yml
+      assetPath: path
+      timeout: 30
+      contexts:
+        UIBusinessSelector: ~
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        root: /Applications/XAMPP/htdocs/drupal/sites
+      region_map:
+        nav menu: "#navMenu"
+        country footer: "#countryFooter"
+        footer: "#footer"

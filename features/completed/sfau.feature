@@ -110,7 +110,6 @@ Scenario: Select and confirm different destinations - Bali selected from block29
 	And I should see the heading "Introduction to Bali"
 	And I should see the following <links>
 	|links|
-	|Overview|
 	|basic|
 	|currency|
 	|things to do|

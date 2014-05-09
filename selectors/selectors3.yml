@@ -41,3 +41,12 @@ Enquiry Text: "#edit-submitted-webcomments"
 Existing Client No: "#edit-submitted-existing-client--2-2"
 Existing Client Yes: "#edit-submitted-existing-client--2-1"
 Submit: "#edit-submit--3"
+
+#myadventurestore
+adventure tours: "#navMenu a:contains('adventure tours')"
+short breaks: "#navMenu a:contains('short breaks')"
+specials: "#navMenu a:contains('specials')"
+flights: "#navMenu a:contains('flights')"
+tour companies: "#navMenu a:contains('tour companies')"
+blog: "#navMenu a:contains('blog')"
+contact us: "#navMenu a:contains('contact us')"
